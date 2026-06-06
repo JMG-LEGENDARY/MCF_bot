@@ -12,6 +12,8 @@ for i in token:
 MCF_ID = 993457171759120424
 guild = bot.get_guild(MCF_ID)
 
+#salons id
+
 gestion_mc_id = 1302323091002626170
 gestion_console_id = 1512030104690102412
 gestion_debian_id = 1512030347586441226
@@ -27,4 +29,13 @@ info_channel_id = 1258468979433934969
 
 signalement_channel_id = 1308826785563152414
 modo_only_channel_id = 1258297452763680799
+
+#roles
+manager_ultim_id = 1258299049942188032
+la_prochaine__ban_id = 1303310386778341457
+manager_minecraft_id = 1258298144316456990
+manager_discord_id = 1258299897396854875
+manager_crafty_id = 1294371187006378115
+createurs_id = 1306304501199671386
+Membres_serveur_id = 1306304501199671386
 
