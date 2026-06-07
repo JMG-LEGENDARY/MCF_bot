@@ -1,6 +1,14 @@
 import discord
 from discord.ext import commands
 
+console_addr = "https://100.111.101.28:8443/panel/server_detail?id=ac2a85c5-238b-4e32-9e06-986dddd97ef5"
+api_crafty= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE3ODA4NTg5NTYsInRva2VuX2lkIjoxfQ.g_h7DJq3xs1XZYhyVNd0zRtTiAHw291czZBSXTUgEuI"
+
+API_CRAFTY = ['e', 'y', 'J', 'h', 'b', 'G', 'c', 'i', 'O', 'i', 'J', 'I', 'U', 'z', 'I', '1', 'N', 'i', 'I', 's', 'I', 'n', 'R', '5', 'c', 'C', 'I', '6', 'I', 'k', 'p', 'X', 'V', 'C', 'J', '9', '.', 'e', 'y', 'J', '1', 'c', '2', 'V', 'y', 'X', '2', 'l', 'k', 'I', 'j', 'o', 'x', 'L', 'C', 'J', 'p', 'Y', 'X', 'Q', 'i', 'O', 'j', 'E', '3', 'O', 'D', 'A', '4', 'N', 'T', 'g', '5', 'N', 'T', 'Y', 's', 'I', 'n', 'R', 'v', 'a', '2', 'V', 'u', 'X', '2', 'l', 'k', 'I', 'j', 'o', 'x', 'f', 'Q', '.', 'g', '_', 'h', '7', 'D', 'J', 'q', '3', 'x', 's', '1', 'X', 'Z', 'Y', 'h', 'y', 'V', 'N', 'd', '0', 'z', 'R', 't', 'T', 'i', 'A', 'H', 'w', '2', '9', '1', 'c', 'z', 'Z', 'B', 'S', 'X', 'T', 'U', 'g', 'E', 'u', 'I']
+for i in api_crafty:
+    API_CRAFTY = l.append(i)
+print(l)
+
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix="/", intents=intents)
 embed = discord.Embed()
@@ -11,6 +19,7 @@ for i in token:
 
 MCF_ID = 993457171759120424
 guild = bot.get_guild(MCF_ID)
+
 
 #salons id
 
