@@ -1,0 +1,1947 @@
+2026-06-09 15:31:39 - __main__ - CRITICAL - ❌ Erreur de configuration: Variables d'environnement manquantes: BOT_TOKEN, CRAFTY_API_TOKEN, CRAFTY_SERVER_ID
+2026-06-09 15:48:17 - __main__ - CRITICAL - ❌ Erreur de configuration: Variables d'environnement manquantes: BOT_TOKEN, CRAFTY_API_TOKEN, CRAFTY_SERVER_ID
+2026-06-09 17:41:55 - __main__ - CRITICAL - ❌ Erreur de configuration: Variables d'environnement manquantes: BOT_TOKEN, CRAFTY_API_TOKEN, CRAFTY_SERVER_ID
+2026-06-09 17:44:31 - __main__ - ERROR - ❌ Erreur en chargeant cogs.admin_economy : Extension 'cogs.admin_economy' raised an error: ImportError: cannot import name 'commands_check' from 'core.decorators' (/home/jmg/Bureau/JMG_BOT v2/core/decorators.py)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/admin_economy.py", line 12, in <module>
+    from core.decorators import commands_check
+ImportError: cannot import name 'commands_check' from 'core.decorators' (/home/jmg/Bureau/JMG_BOT v2/core/decorators.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.admin_economy' raised an error: ImportError: cannot import name 'commands_check' from 'core.decorators' (/home/jmg/Bureau/JMG_BOT v2/core/decorators.py)
+2026-06-09 17:44:31 - __main__ - ERROR - ❌ Erreur en chargeant cogs.minigames : Extension 'cogs.minigames' raised an error: ImportError: cannot import name 'commands_check' from 'core.decorators' (/home/jmg/Bureau/JMG_BOT v2/core/decorators.py)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 16, in <module>
+    from core.decorators import commands_check, user_check, cooldown_check
+ImportError: cannot import name 'commands_check' from 'core.decorators' (/home/jmg/Bureau/JMG_BOT v2/core/decorators.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.minigames' raised an error: ImportError: cannot import name 'commands_check' from 'core.decorators' (/home/jmg/Bureau/JMG_BOT v2/core/decorators.py)
+2026-06-09 17:44:31 - __main__ - ERROR - ❌ Erreur en chargeant cogs.monitoring : Extension 'cogs.monitoring' raised an error: ModuleNotFoundError: No module named 'psutil'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 9, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.monitoring' raised an error: ModuleNotFoundError: No module named 'psutil'
+2026-06-09 17:44:34 - db.database - ERROR - Erreur DB: Could not determine join condition between parent/child tables on relationship User.shop_items - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+2026-06-09 17:44:34 - cogs.purchase - ERROR - Erreur dans deliver_purchases: Could not determine join condition between parent/child tables on relationship User.shop_items - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/relationships.py", line 2435, in _determine_joins
+    self.primaryjoin = join_condition(
+                       ~~~~~~~~~~~~~~^
+        self.parent_persist_selectable,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        consider_as_foreign_keys=consider_as_foreign_keys,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/sql/util.py", line 122, in join_condition
+    return Join._join_condition(
+           ~~~~~~~~~~~~~~~~~~~~^
+        a,
+        ^^
+    ...<2 lines>...
+        consider_as_foreign_keys=consider_as_foreign_keys,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/sql/selectable.py", line 1452, in _join_condition
+    raise exc.NoForeignKeysError(
+    ...<3 lines>...
+    )
+sqlalchemy.exc.NoForeignKeysError: Can't find any foreign key relationships between 'users' and 'shop_items'.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/purchase.py", line 30, in deliver_purchases
+    active_sessions = session.query(GameSession).filter(
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2962, in query
+    return self._query_cls(entities, self, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 277, in __init__
+    self._set_entities(entities)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 290, in _set_entities
+    coercions.expect(
+    ~~~~~~~~~~~~~~~~^
+        roles.ColumnsClauseRole,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        post_inspect=True,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 389, in expect
+    insp._post_inspect
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 1234, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/mapper.py", line 2734, in _post_inspect
+    self._check_configure()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/mapper.py", line 2411, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/mapper.py", line 4228, in _configure_registries
+    _do_configure_registries(registries, cascade)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/mapper.py", line 4269, in _do_configure_registries
+    mapper._post_configure_properties()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/mapper.py", line 2428, in _post_configure_properties
+    prop.init()
+    ~~~~~~~~~^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/interfaces.py", line 595, in init
+    self.do_init()
+    ~~~~~~~~~~~~^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/relationships.py", line 1658, in do_init
+    self._setup_join_conditions()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/relationships.py", line 1896, in _setup_join_conditions
+    self._join_condition = jc = JoinCondition(
+                                ~~~~~~~~~~~~~^
+        parent_persist_selectable=self.parent.persist_selectable,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<14 lines>...
+        can_be_synced_fn=self._columns_are_mapped,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/relationships.py", line 2322, in __init__
+    self._determine_joins()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/relationships.py", line 2456, in _determine_joins
+    raise sa_exc.NoForeignKeysError(
+    ...<7 lines>...
+    ) from nfe
+sqlalchemy.exc.NoForeignKeysError: Could not determine join condition between parent/child tables on relationship User.shop_items - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+2026-06-09 17:45:04 - db.database - ERROR - Erreur DB: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[User(users)]'. Original exception was: Could not determine join condition between parent/child tables on relationship User.shop_items - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+2026-06-09 17:45:04 - cogs.purchase - ERROR - Erreur dans deliver_purchases: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[User(users)]'. Original exception was: Could not determine join condition between parent/child tables on relationship User.shop_items - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/purchase.py", line 30, in deliver_purchases
+    active_sessions = session.query(GameSession).filter(
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2962, in query
+    return self._query_cls(entities, self, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 277, in __init__
+    self._set_entities(entities)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 290, in _set_entities
+    coercions.expect(
+    ~~~~~~~~~~~~~~~~^
+        roles.ColumnsClauseRole,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        post_inspect=True,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 389, in expect
+    insp._post_inspect
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 1234, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/mapper.py", line 2734, in _post_inspect
+    self._check_configure()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/mapper.py", line 2411, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/mapper.py", line 4228, in _configure_registries
+    _do_configure_registries(registries, cascade)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/mapper.py", line 4265, in _do_configure_registries
+    raise e
+sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[User(users)]'. Original exception was: Could not determine join condition between parent/child tables on relationship User.shop_items - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+2026-06-09 17:45:34 - db.database - ERROR - Erreur DB: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[User(users)]'. Original exception was: Could not determine join condition between parent/child tables on relationship User.shop_items - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+2026-06-09 17:45:34 - cogs.purchase - ERROR - Erreur dans deliver_purchases: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[User(users)]'. Original exception was: Could not determine join condition between parent/child tables on relationship User.shop_items - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/purchase.py", line 30, in deliver_purchases
+    active_sessions = session.query(GameSession).filter(
+                      ~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2962, in query
+    return self._query_cls(entities, self, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 277, in __init__
+    self._set_entities(entities)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/query.py", line 290, in _set_entities
+    coercions.expect(
+    ~~~~~~~~~~~~~~~~^
+        roles.ColumnsClauseRole,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        post_inspect=True,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/sql/coercions.py", line 389, in expect
+    insp._post_inspect
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 1234, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/mapper.py", line 2734, in _post_inspect
+    self._check_configure()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/mapper.py", line 2411, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/mapper.py", line 4228, in _configure_registries
+    _do_configure_registries(registries, cascade)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/mapper.py", line 4265, in _do_configure_registries
+    raise e
+sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[User(users)]'. Original exception was: Could not determine join condition between parent/child tables on relationship User.shop_items - there are no foreign keys linking these tables.  Ensure that referencing columns are associated with a ForeignKey or ForeignKeyConstraint, or specify a 'primaryjoin' expression.
+2026-06-09 17:56:29 - __main__ - ERROR - ❌ Erreur en chargeant cogs.admin_economy : Extension 'cogs.admin_economy' raised an error: ImportError: cannot import name 'commands_check' from 'core.decorators' (/home/jmg/Bureau/JMG_BOT v2/core/decorators.py)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/admin_economy.py", line 12, in <module>
+    from core.decorators import commands_check
+ImportError: cannot import name 'commands_check' from 'core.decorators' (/home/jmg/Bureau/JMG_BOT v2/core/decorators.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.admin_economy' raised an error: ImportError: cannot import name 'commands_check' from 'core.decorators' (/home/jmg/Bureau/JMG_BOT v2/core/decorators.py)
+2026-06-09 17:56:29 - __main__ - ERROR - ❌ Erreur en chargeant cogs.minigames : Extension 'cogs.minigames' raised an error: ImportError: cannot import name 'commands_check' from 'core.decorators' (/home/jmg/Bureau/JMG_BOT v2/core/decorators.py)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 16, in <module>
+    from core.decorators import commands_check, user_check, cooldown_check
+ImportError: cannot import name 'commands_check' from 'core.decorators' (/home/jmg/Bureau/JMG_BOT v2/core/decorators.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.minigames' raised an error: ImportError: cannot import name 'commands_check' from 'core.decorators' (/home/jmg/Bureau/JMG_BOT v2/core/decorators.py)
+2026-06-09 17:56:29 - __main__ - ERROR - ❌ Erreur en chargeant cogs.monitoring : Extension 'cogs.monitoring' raised an error: ImportError: cannot import name 'create_embed' from 'utils.formatters' (/home/jmg/Bureau/JMG_BOT v2/utils/formatters.py)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 15, in <module>
+    from utils.formatters import create_embed
+ImportError: cannot import name 'create_embed' from 'utils.formatters' (/home/jmg/Bureau/JMG_BOT v2/utils/formatters.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.monitoring' raised an error: ImportError: cannot import name 'create_embed' from 'utils.formatters' (/home/jmg/Bureau/JMG_BOT v2/utils/formatters.py)
+2026-06-09 18:00:35 - __main__ - ERROR - ❌ Erreur en chargeant cogs.admin_economy : Extension 'cogs.admin_economy' raised an error: ImportError: cannot import name 'create_embed' from 'utils.formatters' (/home/jmg/Bureau/JMG_BOT v2/utils/formatters.py)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/admin_economy.py", line 14, in <module>
+    from utils.formatters import create_embed
+ImportError: cannot import name 'create_embed' from 'utils.formatters' (/home/jmg/Bureau/JMG_BOT v2/utils/formatters.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.admin_economy' raised an error: ImportError: cannot import name 'create_embed' from 'utils.formatters' (/home/jmg/Bureau/JMG_BOT v2/utils/formatters.py)
+2026-06-09 18:00:35 - __main__ - ERROR - ❌ Erreur en chargeant cogs.minigames : Extension 'cogs.minigames' raised an error: ImportError: cannot import name 'logger' from 'utils.logger' (/home/jmg/Bureau/JMG_BOT v2/utils/logger.py)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 17, in <module>
+    from utils.logger import logger, get_logger
+ImportError: cannot import name 'logger' from 'utils.logger' (/home/jmg/Bureau/JMG_BOT v2/utils/logger.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.minigames' raised an error: ImportError: cannot import name 'logger' from 'utils.logger' (/home/jmg/Bureau/JMG_BOT v2/utils/logger.py)
+2026-06-09 18:00:35 - __main__ - ERROR - ❌ Erreur en chargeant cogs.monitoring : Extension 'cogs.monitoring' raised an error: ImportError: cannot import name 'create_embed' from 'utils.formatters' (/home/jmg/Bureau/JMG_BOT v2/utils/formatters.py)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 15, in <module>
+    from utils.formatters import create_embed
+ImportError: cannot import name 'create_embed' from 'utils.formatters' (/home/jmg/Bureau/JMG_BOT v2/utils/formatters.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.monitoring' raised an error: ImportError: cannot import name 'create_embed' from 'utils.formatters' (/home/jmg/Bureau/JMG_BOT v2/utils/formatters.py)
+2026-06-09 18:03:36 - __main__ - ERROR - ❌ Erreur en chargeant cogs.admin_economy : Extension 'cogs.admin_economy' raised an error: ImportError: cannot import name 'create_embed' from 'utils.formatters' (/home/jmg/Bureau/JMG_BOT v2/utils/formatters.py)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/admin_economy.py", line 14, in <module>
+    from utils.formatters import create_embed
+ImportError: cannot import name 'create_embed' from 'utils.formatters' (/home/jmg/Bureau/JMG_BOT v2/utils/formatters.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.admin_economy' raised an error: ImportError: cannot import name 'create_embed' from 'utils.formatters' (/home/jmg/Bureau/JMG_BOT v2/utils/formatters.py)
+2026-06-09 18:03:36 - __main__ - ERROR - ❌ Erreur en chargeant cogs.minigames : Extension 'cogs.minigames' raised an error: ImportError: cannot import name 'logger' from 'utils.logger' (/home/jmg/Bureau/JMG_BOT v2/utils/logger.py)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 17, in <module>
+    from utils.logger import logger, get_logger
+ImportError: cannot import name 'logger' from 'utils.logger' (/home/jmg/Bureau/JMG_BOT v2/utils/logger.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.minigames' raised an error: ImportError: cannot import name 'logger' from 'utils.logger' (/home/jmg/Bureau/JMG_BOT v2/utils/logger.py)
+2026-06-09 18:03:36 - __main__ - ERROR - ❌ Erreur en chargeant cogs.monitoring : Extension 'cogs.monitoring' raised an error: ImportError: cannot import name 'create_embed' from 'utils.formatters' (/home/jmg/Bureau/JMG_BOT v2/utils/formatters.py)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 15, in <module>
+    from utils.formatters import create_embed
+ImportError: cannot import name 'create_embed' from 'utils.formatters' (/home/jmg/Bureau/JMG_BOT v2/utils/formatters.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.monitoring' raised an error: ImportError: cannot import name 'create_embed' from 'utils.formatters' (/home/jmg/Bureau/JMG_BOT v2/utils/formatters.py)
+2026-06-09 18:13:24 - __main__ - ERROR - ❌ Erreur en chargeant cogs.admin_economy : Extension 'cogs.admin_economy' raised an error: TypeError: 'Database' object is not callable
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 963, in _load_from_module_spec
+    await setup(self)
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/admin_economy.py", line 343, in setup
+    await bot.add_cog(AdminEconomyCog(bot))
+                      ~~~~~~~~~~~~~~~^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/admin_economy.py", line 24, in __init__
+    self.session = db()
+                   ~~^^
+TypeError: 'Database' object is not callable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 968, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.admin_economy' raised an error: TypeError: 'Database' object is not callable
+2026-06-09 18:13:24 - __main__ - ERROR - ❌ Erreur en chargeant cogs.minigames : Extension 'cogs.minigames' raised an error: ImportError: cannot import name 'logger' from 'utils.logger' (/home/jmg/Bureau/JMG_BOT v2/utils/logger.py)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 17, in <module>
+    from utils.logger import logger, get_logger
+ImportError: cannot import name 'logger' from 'utils.logger' (/home/jmg/Bureau/JMG_BOT v2/utils/logger.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.minigames' raised an error: ImportError: cannot import name 'logger' from 'utils.logger' (/home/jmg/Bureau/JMG_BOT v2/utils/logger.py)
+2026-06-09 18:13:24 - __main__ - ERROR - ❌ Erreur en chargeant cogs.monitoring : Extension 'cogs.monitoring' raised an error: TypeError: Commands or listeners must not start with cog_ or bot_ (in method MonitoringCog.bot_status)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 20, in <module>
+    class MonitoringCog(commands.Cog):
+    ...<135 lines>...
+            log.info("✅ MonitoringCog loaded")
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/cog.py", line 226, in __new__
+    raise TypeError(no_bot_cog.format(base, elem))
+TypeError: Commands or listeners must not start with cog_ or bot_ (in method MonitoringCog.bot_status)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.monitoring' raised an error: TypeError: Commands or listeners must not start with cog_ or bot_ (in method MonitoringCog.bot_status)
+2026-06-09 18:15:03 - __main__ - ERROR - ❌ Erreur en chargeant cogs.minigames : Extension 'cogs.minigames' raised an error: TypeError: 'Database' object is not callable
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 963, in _load_from_module_spec
+    await setup(self)
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 301, in setup
+    await bot.add_cog(MiniGamesCog(bot))
+                      ~~~~~~~~~~~~^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 27, in __init__
+    self.session = db()
+                   ~~^^
+TypeError: 'Database' object is not callable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 968, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.minigames' raised an error: TypeError: 'Database' object is not callable
+2026-06-09 18:15:03 - __main__ - ERROR - ❌ Erreur en chargeant cogs.monitoring : Extension 'cogs.monitoring' raised an error: TypeError: Commands or listeners must not start with cog_ or bot_ (in method MonitoringCog.bot_status)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 20, in <module>
+    class MonitoringCog(commands.Cog):
+    ...<135 lines>...
+            log.info("✅ MonitoringCog loaded")
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/cog.py", line 226, in __new__
+    raise TypeError(no_bot_cog.format(base, elem))
+TypeError: Commands or listeners must not start with cog_ or bot_ (in method MonitoringCog.bot_status)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.monitoring' raised an error: TypeError: Commands or listeners must not start with cog_ or bot_ (in method MonitoringCog.bot_status)
+2026-06-09 18:17:23 - __main__ - ERROR - ❌ Erreur en chargeant cogs.monitoring : Extension 'cogs.monitoring' raised an error: TypeError: Commands or listeners must not start with cog_ or bot_ (in method MonitoringCog.bot_status)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 20, in <module>
+    class MonitoringCog(commands.Cog):
+    ...<135 lines>...
+            log.info("✅ MonitoringCog loaded")
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/cog.py", line 226, in __new__
+    raise TypeError(no_bot_cog.format(base, elem))
+TypeError: Commands or listeners must not start with cog_ or bot_ (in method MonitoringCog.bot_status)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.monitoring' raised an error: TypeError: Commands or listeners must not start with cog_ or bot_ (in method MonitoringCog.bot_status)
+2026-06-09 18:19:07 - __main__ - ERROR - ❌ Erreur en chargeant cogs.monitoring : Extension 'cogs.monitoring' raised an error: NameError: name 'app_commands' is not defined
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 20, in <module>
+    class MonitoringCog(commands.Cog):
+    ...<135 lines>...
+            log.info("✅ MonitoringCog loaded")
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 30, in MonitoringCog
+    @app_commands.command(name="bot-status", description="Affiche le statut système du bot")
+     ^^^^^^^^^^^^
+NameError: name 'app_commands' is not defined
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.monitoring' raised an error: NameError: name 'app_commands' is not defined
+2026-06-09 18:20:04 - __main__ - ERROR - ❌ Erreur en chargeant cogs.monitoring : Extension 'cogs.monitoring' raised an error: TypeError: Commands or listeners must not start with cog_ or bot_ (in method MonitoringCog.bot_errors)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 21, in <module>
+    class MonitoringCog(commands.Cog):
+    ...<135 lines>...
+            log.info("✅ MonitoringCog loaded")
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/cog.py", line 232, in __new__
+    raise TypeError(no_bot_cog.format(base, elem))
+TypeError: Commands or listeners must not start with cog_ or bot_ (in method MonitoringCog.bot_errors)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.monitoring' raised an error: TypeError: Commands or listeners must not start with cog_ or bot_ (in method MonitoringCog.bot_errors)
+2026-06-09 18:24:01 - __main__ - ERROR - ❌ Erreur en chargeant cogs.monitoring : Extension 'cogs.monitoring' raised an error: SyntaxError: '(' was never closed (monitoring.py, line 114)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1022, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1160, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1090, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 114
+    embed.add_field(
+                   ^
+SyntaxError: '(' was never closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.monitoring' raised an error: SyntaxError: '(' was never closed (monitoring.py, line 114)
+2026-06-09 18:33:29 - __main__ - ERROR - ❌ Erreur en chargeant cogs.monitoring : Extension 'cogs.monitoring' raised an error: SyntaxError: '(' was never closed (monitoring.py, line 114)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1022, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1160, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1090, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 114
+    embed.add_field(
+                   ^
+SyntaxError: '(' was never closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.monitoring' raised an error: SyntaxError: '(' was never closed (monitoring.py, line 114)
+2026-06-09 18:34:44 - __main__ - ERROR - ❌ Erreur en chargeant cogs.monitoring : Extension 'cogs.monitoring' raised an error: SyntaxError: '(' was never closed (monitoring.py, line 114)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1022, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1160, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1090, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 114
+    embed.add_field(
+                   ^
+SyntaxError: '(' was never closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.monitoring' raised an error: SyntaxError: '(' was never closed (monitoring.py, line 114)
+2026-06-09 18:41:00 - __main__ - ERROR - ❌ Erreur en chargeant cogs.monitoring : Extension 'cogs.monitoring' raised an error: SyntaxError: '(' was never closed (monitoring.py, line 114)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1022, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1160, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1090, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 114
+    embed.add_field(
+                   ^
+SyntaxError: '(' was never closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.monitoring' raised an error: SyntaxError: '(' was never closed (monitoring.py, line 114)
+2026-06-09 18:43:43 - __main__ - ERROR - ❌ Erreur en chargeant cogs.monitoring : Extension 'cogs.monitoring' raised an error: SyntaxError: '(' was never closed (monitoring.py, line 114)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1022, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1160, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1090, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 114
+    embed.add_field(
+                   ^
+SyntaxError: '(' was never closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 55, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.monitoring' raised an error: SyntaxError: '(' was never closed (monitoring.py, line 114)
+2026-06-09 18:44:47 - monitoring - ERROR - Health check failed: 'Database' object has no attribute 'query'
+2026-06-09 18:54:47 - monitoring - ERROR - Health check failed: 'Database' object has no attribute 'query'
+2026-06-09 21:47:27 - monitoring - ERROR - Health check failed: 'Database' object has no attribute 'query'
+2026-06-09 21:51:48 - monitoring - ERROR - Health check failed: 'Database' object has no attribute 'query'
+2026-06-09 21:55:41 - monitoring - ERROR - Health check failed: 'Database' object has no attribute 'query'
+2026-06-10 09:21:35 - monitoring - ERROR - Health check failed: 'Database' object has no attribute 'query'
+2026-06-10 09:25:09 - monitoring - ERROR - Health check failed: 'Database' object has no attribute 'query'
+2026-06-10 09:31:35 - monitoring - ERROR - Health check failed: 'Database' object has no attribute 'query'
+2026-06-10 09:36:03 - monitoring - ERROR - Health check failed: 'Database' object has no attribute 'query'
+2026-06-10 09:41:23 - monitoring - ERROR - Health check failed: 'Database' object has no attribute 'query'
+2026-06-10 09:41:35 - monitoring - ERROR - Health check failed: 'Database' object has no attribute 'query'
+2026-06-10 09:41:46 - monitoring - ERROR - Health check failed: 'Database' object has no attribute 'query'
+2026-06-10 10:37:57 - __main__ - ERROR - ❌ Erreur en chargeant cogs.ticket_link : Extension 'cogs.ticket_link' raised an error: AttributeError: 'Config' object has no attribute 'TICKET_CHANNEL_ID'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/ticket_link.py", line 19, in <module>
+    TICKET_CHANNEL_ID = config.TICKET_CHANNEL_ID  # ID du salon où le panel de tickets sera posté
+                        ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Config' object has no attribute 'TICKET_CHANNEL_ID'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 56, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.ticket_link' raised an error: AttributeError: 'Config' object has no attribute 'TICKET_CHANNEL_ID'
+2026-06-10 10:39:10 - __main__ - ERROR - ❌ Erreur en chargeant cogs.ticket_link : Extension 'cogs.ticket_link' raised an error: AttributeError: 'Config' object has no attribute 'TICKET_CHANNEL_ID'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/ticket_link.py", line 19, in <module>
+    TICKET_CHANNEL_ID = config.TICKET_CHANNEL_ID  # ID du salon où le panel de tickets sera posté
+                        ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Config' object has no attribute 'TICKET_CHANNEL_ID'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 56, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.ticket_link' raised an error: AttributeError: 'Config' object has no attribute 'TICKET_CHANNEL_ID'
+2026-06-10 10:40:11 - __main__ - ERROR - ❌ Erreur en chargeant cogs.ticket_link : Extension 'cogs.ticket_link' raised an error: AttributeError: 'dict' object has no attribute 'TICKET_CHANNEL_ID'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/ticket_link.py", line 19, in <module>
+    TICKET_CHANNEL_ID = config.CHANNELS.TICKET_CHANNEL_ID  # ID du salon où le panel de tickets sera posté
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'TICKET_CHANNEL_ID'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 56, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.ticket_link' raised an error: AttributeError: 'dict' object has no attribute 'TICKET_CHANNEL_ID'
+2026-06-10 10:42:26 - __main__ - ERROR - ❌ Erreur en chargeant cogs.ticket_link : Extension 'cogs.ticket_link' raised an error: AttributeError: 'Config' object has no attribute 'MANAGER_MINECRAFT_ROLE'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/ticket_link.py", line 24, in <module>
+    config.MANAGER_MINECRAFT_ROLE,  # MANAGER_MINECRAFT_ROLE
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Config' object has no attribute 'MANAGER_MINECRAFT_ROLE'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 56, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.ticket_link' raised an error: AttributeError: 'Config' object has no attribute 'MANAGER_MINECRAFT_ROLE'
+2026-06-10 10:46:42 - __main__ - ERROR - ❌ Erreur en chargeant cogs.ticket_link : Extension 'cogs.ticket_link' raised an error: NameError: name 'config' is not defined
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/ticket_link.py", line 20, in <module>
+    TICKET_CHANNEL_ID = int(config.CHANNELS.get("ticket_channel"))
+                            ^^^^^^
+NameError: name 'config' is not defined
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 56, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.ticket_link' raised an error: NameError: name 'config' is not defined
+2026-06-10 10:48:47 - tickets - ERROR - Erreur lors de la liaison automatique : 'Database' object has no attribute 'query'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/ticket_link.py", line 142, in handle_minecraft_ticket
+    user_data = session.query(User).filter(User.id == str(user.id)).first()
+                ^^^^^^^^^^^^^
+AttributeError: 'Database' object has no attribute 'query'
+2026-06-10 11:01:12 - db.database - ERROR - Erreur DB: (sqlite3.IntegrityError) NOT NULL constraint failed: users.discord_id
+[SQL: INSERT INTO users (id, discord_id, minecraft_username, craftycoin_balance, total_messages, total_characters, total_responses, total_playtime_minutes, message_multiplier, playtime_multiplier, response_multiplier, last_daily_reward, consecutive_days, is_afk_voice, last_activity, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('993451886134956042', None, 'JMG', 0.0, 0, 0, 0, 0.0, 1.0, 1.0, 1.0, None, 0, 0, '2026-06-10 09:01:12.884634', '2026-06-10 09:01:12.884638', '2026-06-10 09:01:12.884639')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-06-10 11:01:12 - tickets - ERROR - Erreur lors de la liaison automatique : (sqlite3.IntegrityError) NOT NULL constraint failed: users.discord_id
+[SQL: INSERT INTO users (id, discord_id, minecraft_username, craftycoin_balance, total_messages, total_characters, total_responses, total_playtime_minutes, message_multiplier, playtime_multiplier, response_multiplier, last_daily_reward, consecutive_days, is_afk_voice, last_activity, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('993451886134956042', None, 'JMG', 0.0, 0, 0, 0, 0.0, 1.0, 1.0, 1.0, None, 0, 0, '2026-06-10 09:01:12.884634', '2026-06-10 09:01:12.884638', '2026-06-10 09:01:12.884639')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: NOT NULL constraint failed: users.discord_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/ticket_link.py", line 170, in handle_minecraft_ticket
+    session.commit()
+    ~~~~~~~~~~~~~~^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 2034, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 1315, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 1290, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 4352, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 4487, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/session.py", line 4448, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/unitofwork.py", line 465, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/unitofwork.py", line 641, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/persistence.py", line 94, in save_obj
+    _emit_insert_statements(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        base_mapper,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        insert,
+        ^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/persistence.py", line 1049, in _emit_insert_statements
+    result = connection.execute(
+        statement, multiparams, execution_options=execution_options
+    )
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1421, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/sql/elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1643, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2365, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: users.discord_id
+[SQL: INSERT INTO users (id, discord_id, minecraft_username, craftycoin_balance, total_messages, total_characters, total_responses, total_playtime_minutes, message_multiplier, playtime_multiplier, response_multiplier, last_daily_reward, consecutive_days, is_afk_voice, last_activity, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('993451886134956042', None, 'JMG', 0.0, 0, 0, 0, 0.0, 1.0, 1.0, 1.0, None, 0, 0, '2026-06-10 09:01:12.884634', '2026-06-10 09:01:12.884638', '2026-06-10 09:01:12.884639')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-06-10 11:02:29 - discord.client - ERROR - Attempting a reconnect in 0.41s
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 939, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/client.py", line 664, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/gateway.py", line 374, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/http.py", line 550, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 825, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 574, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Name or service not known]
+2026-06-10 11:02:30 - discord.client - ERROR - Attempting a reconnect in 3.95s
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 939, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/client.py", line 664, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/gateway.py", line 374, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/http.py", line 550, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 825, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 574, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Name or service not known]
+2026-06-10 11:02:34 - discord.client - ERROR - Attempting a reconnect in 0.28s
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 939, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/client.py", line 664, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/gateway.py", line 374, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/http.py", line 550, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 825, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 574, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Name or service not known]
+2026-06-10 11:02:34 - discord.client - ERROR - Attempting a reconnect in 1.69s
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 939, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/client.py", line 664, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/gateway.py", line 374, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/http.py", line 550, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 825, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 574, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Name or service not known]
+2026-06-10 11:02:36 - discord.client - ERROR - Attempting a reconnect in 29.61s
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 939, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/client.py", line 664, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/gateway.py", line 374, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/http.py", line 550, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 825, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 574, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Name or service not known]
+2026-06-10 11:03:05 - discord.client - ERROR - Attempting a reconnect in 11.83s
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 939, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/client.py", line 664, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/gateway.py", line 374, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/http.py", line 550, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 825, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 574, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Name or service not known]
+2026-06-10 11:03:17 - discord.client - ERROR - Attempting a reconnect in 5.60s
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 939, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/client.py", line 664, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/gateway.py", line 374, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/http.py", line 550, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 825, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 574, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Name or service not known]
+2026-06-10 11:03:23 - discord.client - ERROR - Attempting a reconnect in 70.87s
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 939, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/client.py", line 664, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/gateway.py", line 374, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/http.py", line 550, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 825, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 574, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Name or service not known]
+2026-06-10 11:04:34 - discord.client - ERROR - Attempting a reconnect in 190.90s
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 939, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/client.py", line 664, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/gateway.py", line 374, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/http.py", line 550, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 825, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 574, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Name or service not known]
+2026-06-10 13:24:20 - tickets - ERROR - ❌ Erreur RCON lors de l'ajout à la whitelist de JMG : 'MinecraftCog' object has no attribute 'run_command'
+2026-06-10 13:44:23 - crafty_api - ERROR - Erreur lors de l'envoi de commande: 
+2026-06-10 13:48:37 - crafty_api - ERROR - Erreur lors de l'appel à Crafty: 'Config' object has no attribute 'TIMEOUTS'
+2026-06-10 13:49:17 - crafty_api - ERROR - Erreur lors de l'appel à Crafty: 'Config' object has no attribute 'TIMEOUTS'
+2026-06-10 13:52:02 - crafty_api - ERROR - Erreur lors de l'appel à Crafty: 'int' object has no attribute 'get'
+2026-06-10 13:53:57 - crafty_api - ERROR - Erreur lors de l'appel à Crafty: 'float' object has no attribute 'get'
+2026-06-10 15:12:01 - core.decorators - ERROR - Erreur non gérée: module 'crafty_api' has no attribute 'executer_action_serveur'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/crafty.py", line 140, in redemarrer
+    result = await crafty_api.executer_action_serveur("restart")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'crafty_api' has no attribute 'executer_action_serveur'
+2026-06-10 15:44:21 - discord.app_commands.tree - ERROR - Ignoring exception in command 'status'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 879, in _invoke_with_namespace
+    if not await self._check_can_run(interaction):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 1017, in _check_can_run
+    return await async_all(f(interaction) for f in predicates)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/utils.py", line 706, in async_all
+    elem = await elem
+           ^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/checks.py", line 407, in predicate
+    raise CommandOnCooldown(bucket, retry_after)
+discord.app_commands.errors.CommandOnCooldown: You are on cooldown. Try again in 7.46s
+2026-06-10 15:44:26 - discord.app_commands.tree - ERROR - Ignoring exception in command 'status'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 879, in _invoke_with_namespace
+    if not await self._check_can_run(interaction):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 1017, in _check_can_run
+    return await async_all(f(interaction) for f in predicates)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/utils.py", line 706, in async_all
+    elem = await elem
+           ^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/checks.py", line 407, in predicate
+    raise CommandOnCooldown(bucket, retry_after)
+discord.app_commands.errors.CommandOnCooldown: You are on cooldown. Try again in 2.48s
+2026-06-10 15:45:34 - core.decorators - ERROR - Erreur non gérée: 'str' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/crafty.py", line 180, in logs
+    texte_logs = "\n".join([log.get("line", "") for log in logs_data[-15:]]) # Récupère les 15 derniers éléments
+                            ^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+2026-06-10 15:45:43 - core.decorators - ERROR - Erreur non gérée: 'str' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/crafty.py", line 180, in logs
+    texte_logs = "\n".join([log.get("line", "") for log in logs_data[-15:]]) # Récupère les 15 derniers éléments
+                            ^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+2026-06-10 15:46:14 - core.decorators - ERROR - Erreur non gérée: 'str' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/crafty.py", line 180, in logs
+    texte_logs = "\n".join([log.get("line", "") for log in logs_data[-15:]]) # Récupère les 15 derniers éléments
+                            ^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+2026-06-10 15:47:38 - core.decorators - ERROR - Erreur non gérée: 'str' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/crafty.py", line 181, in logs
+    line = log.get("line", "")
+           ^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+2026-06-10 15:56:23 - core.decorators - ERROR - Erreur non gérée: module 'crafty_api' has no attribute 'executer_action_serveur'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/crafty.py", line 140, in redemarrer
+    result = await crafty_api.executer_action_serveur("restart")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'crafty_api' has no attribute 'executer_action_serveur'
+2026-06-10 16:03:59 - core.decorators - ERROR - Erreur non gérée: module 'crafty_api' has no attribute 'executer_action_serveur'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/crafty.py", line 140, in redemarrer
+    result = await crafty_api.redemarrer_serveur()
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+AttributeError: module 'crafty_api' has no attribute 'executer_action_serveur'
+2026-06-10 16:08:39 - core.decorators - ERROR - Erreur non gérée: 'list' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/crafty.py", line 207, in list_users
+    if result.get("success"):
+       ^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+2026-06-10 16:17:42 - core.decorators - ERROR - Erreur non gérée: sequence item 0: expected str instance, dict found
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/crafty.py", line 219, in list_users
+    userss = "\n".join(result)
+TypeError: sequence item 0: expected str instance, dict found
+2026-06-10 16:18:35 - core.decorators - ERROR - Erreur non gérée: 'list' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/crafty.py", line 219, in list_users
+    if result.get("success"):
+       ^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+2026-06-10 16:19:26 - core.decorators - ERROR - Erreur non gérée: 'list' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/crafty.py", line 219, in list_users
+    if result.get("success"):
+       ^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+2026-06-10 16:19:38 - core.decorators - ERROR - Erreur non gérée: 'list' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/crafty.py", line 219, in list_users
+    if result.get("success"):
+       ^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+2026-06-10 16:20:23 - core.decorators - ERROR - Erreur non gérée: 'list' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/crafty.py", line 220, in list_users
+    users = result.get("data", [])
+            ^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+2026-06-10 16:21:23 - core.decorators - ERROR - Erreur non gérée: 'list' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/crafty.py", line 232, in list_users
+    embed = format_error_embed("Erreur", result.get("erreur", "Impossible de récupérer les utilisateurs."))
+                                         ^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+2026-06-10 16:27:49 - core.decorators - ERROR - Erreur non gérée: 'bool' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/crafty.py", line 223, in list_users
+    role = u.get("superuser", {}).get("name", "Aucun rôle")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'bool' object has no attribute 'get'
+2026-06-10 17:02:01 - discord.client - ERROR - Attempting a reconnect in 1.96s
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/gateway.py", line 625, in poll_event
+    await self.received_message(msg.data)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/gateway.py", line 533, in received_message
+    await self.send_as_json(beat)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/gateway.py", line 661, in send_as_json
+    await self.send(utils._to_json(data))
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/gateway.py", line 657, in send
+    await self.socket.send_str(data)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client_ws.py", line 165, in send_str
+    await self._writer.send(data, binary=False, compress=compress)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/http_websocket.py", line 729, in send
+    await self._send_frame(message, WSMsgType.TEXT, compress)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/http_websocket.py", line 675, in _send_frame
+    self._write(header + mask + message)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/http_websocket.py", line 702, in _write
+    raise ConnectionResetError("Cannot write to closing transport")
+ConnectionResetError: Cannot write to closing transport
+2026-06-10 19:39:39 - discord.client - ERROR - Attempting a reconnect in 0.56s
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 939, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/client.py", line 664, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/gateway.py", line 374, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/http.py", line 550, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 825, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 574, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [Name or service not known]
+2026-06-10 19:39:40 - discord.client - ERROR - Attempting a reconnect in 2.38s
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 939, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/client.py", line 664, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/gateway.py", line 374, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/http.py", line 550, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 825, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 574, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [Name or service not known]
+2026-06-10 19:39:42 - discord.client - ERROR - Attempting a reconnect in 4.43s
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 939, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/client.py", line 664, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/gateway.py", line 374, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/http.py", line 550, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 825, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 574, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [Name or service not known]
