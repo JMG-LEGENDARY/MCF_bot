@@ -1,6 +1,6 @@
 """Modèles de base de données SQLAlchemy pour JMG Bot v2"""
 
-from datetime import datetime
+from datetime import datetime, timezone
 from sqlalchemy import Column, Integer, String, Float, DateTime, Boolean, ForeignKey, Text, JSON
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
@@ -34,9 +34,9 @@ class User(Base):
     
     # Métadonnées
     is_afk_voice = Column(Boolean, default=False)
-    last_activity = Column(DateTime, default=datetime.utcnow)
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    last_activity = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=datetime.utcnow)
     
     # Relations
     transactions = relationship("Transaction", back_populates="user", cascade="all, delete-orphan")
@@ -63,8 +63,8 @@ class ShopItem(Base):
     is_available = Column(Boolean, default=True)
     max_purchase_per_user = Column(Integer, default=None)  # None = unlimited
     
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=datetime.utcnow)
     
     # Relations
     purchases = relationship("PendingPurchase", back_populates="item", cascade="all, delete-orphan")
@@ -85,7 +85,7 @@ class PendingPurchase(Base):
     quantity = Column(Integer, default=1)
     status = Column(String(20), default="pending")  # pending, completed, failed, cancelled
     
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     completed_at = Column(DateTime, nullable=True)
     error_message = Column(Text, nullable=True)
     
@@ -112,7 +112,7 @@ class Transaction(Base):
     multiplier_applied = Column(Float, default=1.0)
     base_amount = Column(Float, nullable=True)
     
-    created_at = Column(DateTime, default=datetime.utcnow, index=True)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
     
     # Relations
     user = relationship("User", back_populates="transactions")
@@ -134,7 +134,7 @@ class AntiSpamRecord(Base):
     is_flagged = Column(Boolean, default=False)
     flag_reason = Column(String(100), nullable=True)  # "copy_paste", "spam", etc.
     
-    created_at = Column(DateTime, default=datetime.utcnow, index=True)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
     
     # Relations
     user = relationship("User", back_populates="anti_spam_records")
@@ -154,8 +154,8 @@ class DailyReward(Base):
     consecutive_days = Column(Integer, default=0)
     total_claimed = Column(Integer, default=0)
     
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=datetime.utcnow)
 
 
 class VoiceActivity(Base):
@@ -165,8 +165,8 @@ class VoiceActivity(Base):
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, nullable=False, index=True)
     
-    joined_at = Column(DateTime, default=datetime.utcnow)
-    last_activity = Column(DateTime, default=datetime.utcnow)
+    joined_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    last_activity = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     
     is_muted = Column(Boolean, default=False)
     is_deafened = Column(Boolean, default=False)
@@ -188,7 +188,7 @@ class GameSession(Base):
     user_id = Column(Integer, nullable=False, index=True)
     minecraft_username = Column(String(50), nullable=False)
     
-    login_time = Column(DateTime, default=datetime.utcnow)
+    login_time = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     logout_time = Column(DateTime, nullable=True)
     
     afk_detected = Column(Boolean, default=False)
@@ -209,7 +209,7 @@ class MiniGameSession(Base):
     result = Column(String(20), nullable=False)  # win, loss, tie
     winnings = Column(Float, default=0.0)
     
-    created_at = Column(DateTime, default=datetime.utcnow, index=True)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), index=True)
     
     def __repr__(self):
         return f"<MiniGameSession user={self.user_id} game={self.game_type} result={self.result}>"

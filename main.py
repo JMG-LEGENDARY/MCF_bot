@@ -79,6 +79,7 @@ class JMGBot(commands.Bot):
         logger.info("⚡ Prêt à recevoir des commandes !")
         logger.info("=" * 60)
         
+        
         # Définir le statut
         activity = discord.Activity(
             type=discord.ActivityType.watching,
@@ -148,6 +149,7 @@ async def main():
         logger.info("🔌 Fermeture des connexions...")
         db.close()
         logger.info("✅ Bot arrêté")
+
 
 
 if __name__ == "__main__":

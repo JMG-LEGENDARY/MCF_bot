@@ -6,16 +6,19 @@ Commands: /bot-status (staff only), error webhooks
 import discord
 from discord import app_commands
 from discord.ext import commands, tasks
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import psutil
 import os
 
 from requests import session
+from sqlalchemy import func
 
 from db.database import db, get_leaderboard
 from db.models import Transaction, User
 from utils.logger import get_logger
 from utils.formatters import create_embed
+start_time = datetime.now(timezone.utc)
+print(f"MonitoringCog loaded at {start_time.isoformat()}")
 
 log = get_logger("monitoring")
 
@@ -26,7 +29,7 @@ class MonitoringCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.session = db  # 🛠️ CORRECTION 1 : db n'est pas "callable", on enlève les parenthèses
-        self.start_time = datetime.utcnow()
+        self.start_time = start_time
         self.error_log = []
         self.max_errors = 100
 
@@ -40,21 +43,21 @@ class MonitoringCog(commands.Cog):
         """
         
         # Calculate uptime
-        uptime = datetime.utcnow() - self.start_time
+        uptime = datetime.now(timezone.utc) - self.start_time
         uptime_str = f"{uptime.days}d {uptime.seconds // 3600}h {(uptime.seconds // 60) % 60}m"
         
-        # Get user count
-        user_count = self.session.query(User).count()
+        with db.get_session() as session:
+            user_count = session.query(User).count()
         
         # Get transaction stats (last 24h)
-        yesterday = datetime.utcnow() - timedelta(days=1)
-        txn_24h = self.session.query(Transaction).filter(
-            Transaction.created_at >= yesterday
-        ).count()
-        
-        total_coins = self.session.query(User).with_entities(
-            db.func.sum(User.craftycoin_balance)
-        ).scalar() or 0
+            yesterday = datetime.utcnow() - timedelta(days=1)
+            txn_24h = session.query(Transaction).filter(
+                Transaction.created_at >= yesterday
+            ).count()
+            
+            total_coins = session.query(User).with_entities(
+                func.sum(User.craftycoin_balance)
+            ).scalar() or 0
         
         # Get resource usage
         process = psutil.Process(os.getpid())

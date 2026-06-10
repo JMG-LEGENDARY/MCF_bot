@@ -1945,3 +1945,534 @@ Traceback (most recent call last):
   File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1187, in _create_direct_connection
     raise ClientConnectorError(req.connection_key, exc) from exc
 aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [Name or service not known]
+2026-06-10 21:01:48 - discord.ui.view - ERROR - Ignoring exception in view <TicketButtonsView timeout=None children=2> for item <Button style=<ButtonStyle.success: 3> url=None disabled=False label='Se connecter à Minecraft' emoji=<PartialEmoji animated=False name='🎮' id=None> row=None sku_id=None>
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ui/view.py", line 430, in _scheduled_task
+    await item.callback(interaction)
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/ticket_link.py", line 63, in ticket_minecraft
+    await interaction.response.defer(ephemeral=True)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/interactions.py", line 709, in defer
+    await adapter.create_interaction_response(
+    ...<6 lines>...
+    )
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/webhook/async_.py", line 221, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
+2026-06-10 21:05:59 - discord.ui.view - ERROR - Ignoring exception in view <TicketButtonsView timeout=None children=2> for item <Button style=<ButtonStyle.success: 3> url=None disabled=False label='Se connecter à Minecraft' emoji=<PartialEmoji animated=False name='🎮' id=None> row=None sku_id=None>
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ui/view.py", line 430, in _scheduled_task
+    await item.callback(interaction)
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/ticket_link.py", line 63, in ticket_minecraft
+    await interaction.response.defer(ephemeral=True)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/interactions.py", line 709, in defer
+    await adapter.create_interaction_response(
+    ...<6 lines>...
+    )
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/webhook/async_.py", line 221, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
+2026-06-10 21:10:57 - discord.app_commands.tree - ERROR - Ignoring exception in command 'daily'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 134, in wrapper
+    await interaction.response.defer(ephemeral=ephemeral)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/interactions.py", line 709, in defer
+    await adapter.create_interaction_response(
+    ...<6 lines>...
+    )
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/webhook/async_.py", line 221, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'daily' raised an exception: NotFound: 404 Not Found (error code: 10062): Unknown interaction
+2026-06-10 21:14:50 - discord.app_commands.tree - ERROR - Ignoring exception in command 'daily'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 879, in _invoke_with_namespace
+    if not await self._check_can_run(interaction):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 1017, in _check_can_run
+    return await async_all(f(interaction) for f in predicates)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/utils.py", line 706, in async_all
+    elem = await elem
+           ^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/checks.py", line 407, in predicate
+    raise CommandOnCooldown(bucket, retry_after)
+discord.app_commands.errors.CommandOnCooldown: You are on cooldown. Try again in 3554.60s
+2026-06-10 21:15:29 - discord.app_commands.tree - ERROR - Ignoring exception in command 'daily'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 879, in _invoke_with_namespace
+    if not await self._check_can_run(interaction):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 1017, in _check_can_run
+    return await async_all(f(interaction) for f in predicates)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/utils.py", line 706, in async_all
+    elem = await elem
+           ^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/checks.py", line 407, in predicate
+    raise CommandOnCooldown(bucket, retry_after)
+discord.app_commands.errors.CommandOnCooldown: You are on cooldown. Try again in 3515.87s
+2026-06-10 21:16:05 - discord.app_commands.tree - ERROR - Ignoring exception in command 'bot-status'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 47, in status_bot
+    user_count = self.session.query(User).count()
+                 ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Database' object has no attribute 'query'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'bot-status' raised an exception: AttributeError: 'Database' object has no attribute 'query'
+2026-06-10 21:18:12 - discord.app_commands.tree - ERROR - Ignoring exception in command 'bot-status'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 47, in status_bot
+    user_count = self.session.query(User).count()
+                 ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Database' object has no attribute 'query'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'bot-status' raised an exception: AttributeError: 'Database' object has no attribute 'query'
+2026-06-10 21:19:03 - __main__ - CRITICAL - ❌ Erreur critique: Cannot connect to host discord.com:443 ssl:default [Name or service not known]
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 939, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/lib/python3.13/socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 138, in main
+    await bot.start(config.BOT_TOKEN)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/client.py", line 786, in start
+    await self.login(token)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/client.py", line 620, in login
+    data = await self.http.static_login(token)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/http.py", line 816, in static_login
+    data = await self.request(Route('GET', '/users/@me'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/http.py", line 638, in request
+    async with self.__session.request(method, url, **kwargs) as response:
+               ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 1187, in __aenter__
+    self._resp = await self._coro
+                 ^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/client.py", line 574, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/aiohttp/connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discord.com:443 ssl:default [Name or service not known]
+2026-06-10 21:19:25 - discord.app_commands.tree - ERROR - Ignoring exception in command 'bot-status'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 48, in status_bot
+    user_count = session.query(User).count()
+                 ^^^^^^^^^^^^^
+AttributeError: '_GeneratorContextManager' object has no attribute 'query'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'bot-status' raised an exception: AttributeError: '_GeneratorContextManager' object has no attribute 'query'
+2026-06-10 21:23:49 - discord.app_commands.tree - ERROR - Ignoring exception in command 'bot-status'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 51, in status_bot
+    txn_24h = self.session.query(Transaction).filter(
+              ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Database' object has no attribute 'query'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'bot-status' raised an exception: AttributeError: 'Database' object has no attribute 'query'
+2026-06-10 21:25:13 - db.database - ERROR - Erreur DB: 'Database' object has no attribute 'func'
+2026-06-10 21:25:13 - discord.app_commands.tree - ERROR - Ignoring exception in command 'bot-status'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 56, in status_bot
+    db.func.sum(User.craftycoin_balance)
+    ^^^^^^^
+AttributeError: 'Database' object has no attribute 'func'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'bot-status' raised an exception: AttributeError: 'Database' object has no attribute 'func'
+2026-06-10 21:33:14 - discord.client - ERROR - Ignoring exception in on_ready
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/client.py", line 449, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 81, in on_ready
+    startup_time = self.start_time.strftime("%Y-%m-%d %H:%M:%S UTC")
+                   ^^^^^^^^^^^^^^^
+AttributeError: 'JMGBot' object has no attribute 'start_time'
+2026-06-10 21:42:30 - discord.app_commands.tree - ERROR - Ignoring exception in command 'bot-status'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 46, in status_bot
+    uptime = datetime.utcnow() - self.start_time
+             ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 872, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'bot-status' raised an exception: TypeError: can't subtract offset-naive and offset-aware datetimes
+2026-06-10 21:43:18 - discord.app_commands.tree - ERROR - Ignoring exception in command 'bot-status'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/monitoring.py", line 46, in status_bot
+    uptime = datetime.utcnow() - self.start_time
+             ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/app_commands/commands.py", line 872, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'bot-status' raised an exception: TypeError: can't subtract offset-naive and offset-aware datetimes
+2026-06-10 21:49:49 - core.decorators - ERROR - Erreur non gérée: 'int' object has no attribute 'query'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 161, in coinflip_game
+    valid, msg = await self.check_casino_rules(user_id, bet)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 53, in check_casino_rules
+    user_obj = get_or_create_user(user_id, "Joueur")
+  File "/home/jmg/Bureau/JMG_BOT v2/db/database.py", line 58, in get_or_create_user
+    user = session.query(User).filter(User.discord_id == discord_id).first()
+           ^^^^^^^^^^^^^
+AttributeError: 'int' object has no attribute 'query'
+2026-06-10 21:51:13 - core.decorators - ERROR - Erreur non gérée: 'int' object has no attribute 'query'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 161, in coinflip_game
+    valid, msg = await self.check_casino_rules(user_id, bet)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 53, in check_casino_rules
+    user_obj = get_or_create_user(user_id, "Joueur")
+  File "/home/jmg/Bureau/JMG_BOT v2/db/database.py", line 58, in get_or_create_user
+    user = session.query(User).filter(User.discord_id == discord_id).first()
+           ^^^^^^^^^^^^^
+AttributeError: 'int' object has no attribute 'query'
+2026-06-10 21:59:28 - core.decorators - ERROR - Erreur non gérée: Instance <User at 0x7f83870de350> is not bound to a Session; attribute refresh operation cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 165, in coinflip_game
+    valid, msg = await self.check_casino_rules(user_id, bet)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 58, in check_casino_rules
+    if user_obj.craftycoin_balance < self.MIN_BALANCE_TO_PLAY:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 569, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 1096, in get
+    value = self._fire_loader_callables(state, key, passive)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 1126, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/state.py", line 828, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/loading.py", line 1607, in load_scalar_attributes
+    raise orm_exc.DetachedInstanceError(
+    ...<2 lines>...
+    )
+sqlalchemy.orm.exc.DetachedInstanceError: Instance <User at 0x7f83870de350> is not bound to a Session; attribute refresh operation cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+2026-06-10 22:09:47 - core.decorators - ERROR - Discord HTTP Error: 404 Not Found (error code: 10062): Unknown interaction
+2026-06-10 22:12:46 - core.decorators - ERROR - Discord HTTP Error: 404 Not Found (error code: 10062): Unknown interaction
+2026-06-10 22:13:07 - db.database - ERROR - Erreur DB: 'Session' object has no attribute 'add_transaction'
+2026-06-10 22:13:07 - core.decorators - ERROR - Erreur non gérée: 'Session' object has no attribute 'add_transaction'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 199, in coinflip_game
+    session.add_transaction(user_id=user.id, amount=float(net_change), transaction_type="game_coinflip", description=f"Coinflip : {result.upper()}")
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Session' object has no attribute 'add_transaction'. Did you mean: 'get_transaction'?
+2026-06-10 22:14:44 - core.decorators - ERROR - Erreur non gérée: 'Session' object has no attribute 'add_transaction'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 199, in coinflip_game
+    session.add_transaction(user_id=user.id, amount=float(net_change), transaction_type="game_coinflip", description=f"Coinflip : {result.upper()}")
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Session' object has no attribute 'add_transaction'. Did you mean: 'get_transaction'?
+2026-06-10 22:16:17 - core.decorators - ERROR - Erreur non gérée: Instance <User at 0x7f722e91a210> is not bound to a Session; attribute refresh operation cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 187, in coinflip_game
+    user.craftycoin_balance += winnings
+    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 569, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 1096, in get
+    value = self._fire_loader_callables(state, key, passive)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 1126, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/state.py", line 828, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/loading.py", line 1607, in load_scalar_attributes
+    raise orm_exc.DetachedInstanceError(
+    ...<2 lines>...
+    )
+sqlalchemy.orm.exc.DetachedInstanceError: Instance <User at 0x7f722e91a210> is not bound to a Session; attribute refresh operation cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+2026-06-10 22:17:12 - core.decorators - ERROR - Erreur non gérée: Instance <User at 0x7f9d48d1a210> is not bound to a Session; attribute refresh operation cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 199, in coinflip_game
+    add_transaction(user_id=user.id, amount=float(net_change), transaction_type="game_coinflip", description=f"Coinflip : {result.upper()}")
+                            ^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 569, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 1096, in get
+    value = self._fire_loader_callables(state, key, passive)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 1126, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/state.py", line 828, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/loading.py", line 1607, in load_scalar_attributes
+    raise orm_exc.DetachedInstanceError(
+    ...<2 lines>...
+    )
+sqlalchemy.orm.exc.DetachedInstanceError: Instance <User at 0x7f9d48d1a210> is not bound to a Session; attribute refresh operation cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+2026-06-10 22:19:45 - db.database - ERROR - Erreur DB: Instance <User at 0x7fc38affe210> is not bound to a Session; attribute refresh operation cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+2026-06-10 22:19:45 - core.decorators - ERROR - Erreur non gérée: Instance <User at 0x7fc38affe210> is not bound to a Session; attribute refresh operation cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 203, in coinflip_game
+    user_id=user.id,  # Lu en toute sécurité à l'intérieur du bloc with
+            ^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 569, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 1096, in get
+    value = self._fire_loader_callables(state, key, passive)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 1126, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/state.py", line 828, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/loading.py", line 1607, in load_scalar_attributes
+    raise orm_exc.DetachedInstanceError(
+    ...<2 lines>...
+    )
+sqlalchemy.orm.exc.DetachedInstanceError: Instance <User at 0x7fc38affe210> is not bound to a Session; attribute refresh operation cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+2026-06-10 22:21:00 - __main__ - ERROR - ❌ Erreur en chargeant cogs.minigames : Extension 'cogs.minigames' raised an error: IndentationError: unexpected indent (minigames.py, line 156)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1022, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1160, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1090, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 156
+    @app_commands.describe(bet="Montant en CraftyCoin à miser", choice="Choisissez : heads (pile) ou tails (face)")
+IndentationError: unexpected indent
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/main.py", line 56, in setup_hook
+    await self.load_extension(cog)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/discord/ext/commands/bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.minigames' raised an error: IndentationError: unexpected indent (minigames.py, line 156)
+2026-06-10 22:32:08 - core.decorators - ERROR - Erreur non gérée: Instance <User at 0x7fd04efe3950> is not bound to a Session; attribute refresh operation cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 138, in dice_game
+    user.craftycoin_balance += bet
+    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 569, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 1096, in get
+    value = self._fire_loader_callables(state, key, passive)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 1126, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/state.py", line 828, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/loading.py", line 1607, in load_scalar_attributes
+    raise orm_exc.DetachedInstanceError(
+    ...<2 lines>...
+    )
+sqlalchemy.orm.exc.DetachedInstanceError: Instance <User at 0x7fd04efe3950> is not bound to a Session; attribute refresh operation cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+2026-06-10 22:35:13 - db.database - ERROR - Erreur DB: 'Database' object has no attribute 'add'
+2026-06-10 22:35:13 - core.decorators - ERROR - Erreur non gérée: 'Database' object has no attribute 'add'
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 147, in dice_game
+    self.session.add(session_game)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Database' object has no attribute 'add'
+2026-06-10 22:35:50 - core.decorators - ERROR - Erreur non gérée: Instance <User at 0x7fa6ed2e2210> is not bound to a Session; attribute refresh operation cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+Traceback (most recent call last):
+  File "/home/jmg/Bureau/JMG_BOT v2/core/decorators.py", line 145, in wrapper
+    return await func(self, interaction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/cogs/minigames.py", line 146, in dice_game
+    session_game = MiniGameSession(user_id=user.id, game_type="dice", bet_amount=float(bet), result=result, created_at=datetime.now(timezone.utc))
+                                           ^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 569, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 1096, in get
+    value = self._fire_loader_callables(state, key, passive)
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/attributes.py", line 1126, in _fire_loader_callables
+    return state._load_expired(state, passive)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/state.py", line 828, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jmg/Bureau/JMG_BOT v2/.venv/lib/python3.13/site-packages/sqlalchemy/orm/loading.py", line 1607, in load_scalar_attributes
+    raise orm_exc.DetachedInstanceError(
+    ...<2 lines>...
+    )
+sqlalchemy.orm.exc.DetachedInstanceError: Instance <User at 0x7fa6ed2e2210> is not bound to a Session; attribute refresh operation cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
