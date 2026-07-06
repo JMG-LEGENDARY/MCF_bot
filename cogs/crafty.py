@@ -1,9 +1,10 @@
 """Cog Crafty - Commandes regroupées sous la racine /gestion"""
 
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 from discord import app_commands
 import crafty_api
+from config import config
 from utils import (
     format_server_status_embed, format_error_embed, format_success_embed,
     get_logger
@@ -21,6 +22,67 @@ class CraftyCog(commands.Cog):
     
     def __init__(self, bot):
         self.bot = bot
+        self.last_log_count = 0
+        self.forward_crafty_logs.start()
+
+    @tasks.loop(seconds=20)
+    async def forward_crafty_logs(self):
+        if not self.bot.is_ready():
+            return
+
+        logs_channel_id = config.CHANNELS.get("logs")
+        if not logs_channel_id:
+            return
+
+        channel = self.bot.get_channel(logs_channel_id)
+        if not channel or not isinstance(channel, discord.TextChannel):
+            return
+
+        logs_data = await crafty_api.obtenir_logs()
+        if not logs_data:
+            return
+
+        lignes_logs = []
+        for log_item in logs_data:
+            if isinstance(log_item, dict):
+                lignes_logs.append(log_item.get("line", ""))
+            else:
+                lignes_logs.append(str(log_item))
+
+        lignes_logs = [line for line in lignes_logs if line]
+        if not lignes_logs:
+            return
+
+        if self.last_log_count == 0:
+            self.last_log_count = len(lignes_logs)
+            return
+
+        if len(lignes_logs) < self.last_log_count:
+            self.last_log_count = len(lignes_logs)
+            return
+
+        new_lines = lignes_logs[self.last_log_count:]
+        self.last_log_count = len(lignes_logs)
+        if not new_lines:
+            return
+
+        """for i in range(0, len(new_lines), 10):
+            chunk = new_lines[i:i + 10]
+            text = "\n".join(chunk)
+            embed = discord.Embed(
+                title="📄 Logs Crafty",
+                description=f"```text\n{text}\n```",
+                color=discord.Color.dark_grey()
+            )
+            try:
+                await channel.send(embed=embed)
+            except Exception as e:
+                logger.warning(f"Impossible d'envoyer les logs Crafty automatiques: {e}")
+                return"""   
+
+    @forward_crafty_logs.before_loop
+    async def before_forward_crafty_logs(self):
+        await self.bot.wait_until_ready()
 
     # 1. Déclaration de la commande racine parente
     gestion = app_commands.Group(
@@ -192,6 +254,16 @@ class CraftyCog(commands.Cog):
         )
         embed.set_footer(text="Affichage des 15 dernières lignes")
         await interaction.followup.send(embed=embed, ephemeral=True)
+
+        # Poster automatiquement les logs dans le channel de supervision si config défini
+        logs_channel_id = config.CHANNELS.get("logs")
+        if logs_channel_id:
+            channel = self.bot.get_channel(logs_channel_id)
+            if channel and isinstance(channel, discord.TextChannel):
+                try:
+                    await channel.send(embed=embed)
+                except Exception as e:
+                    logger.warning(f"Impossible d'envoyer les logs Crafty dans le channel logs: {e}")
 
 
     # --- SUBCOMMANDS: /gestion users ... ---

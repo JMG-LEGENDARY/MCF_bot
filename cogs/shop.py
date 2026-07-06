@@ -5,9 +5,9 @@ from discord.ext import commands, tasks
 from discord import app_commands
 from datetime import datetime
 
-from db import db, get_or_create_user, ShopItem, PendingPurchase
+from db import db, get_or_create_user, ShopItem, PendingPurchase, User
 from utils import (
-    format_shop_item_embed, format_error_embed, format_success_embed,
+    format_error_embed, format_success_embed,
     format_coins, get_logger
 )
 from core.decorators import log_command, defer_interaction, handle_errors
@@ -132,8 +132,16 @@ class ShopCog(commands.Cog):
                     await interaction.followup.send(embed=embed, ephemeral=True)
                     return
             
-            # Vérifier le solde
+            # Vérifier l'authentification et le solde
             user = get_or_create_user(session, interaction.user.id)
+            if not getattr(user, 'is_authenticated', False):
+                embed = format_error_embed(
+                    "Authentification requise",
+                    "Vous devez lier et authentifier votre compte Minecraft via `/minecraft login` avant de pouvoir acheter dans la boutique."
+                )
+                await interaction.followup.send(embed=embed, ephemeral=True)
+                return
+
             total_cost = item.price * quantity
             
             if user.craftycoin_balance < total_cost:
@@ -175,6 +183,87 @@ class ShopCog(commands.Cog):
             
             await interaction.followup.send(embed=embed, ephemeral=True)
             logger.info(f"Achat: {interaction.user} → {item.name} x{quantity} ({total_cost} CC)")
+
+    @app_commands.command(name="reclamer_achat", description="Réclame la livraison de tes achats en attente")
+    @app_commands.checks.cooldown(1, 10, key=lambda i: i.user.id)
+    @defer_interaction(ephemeral=True)
+    @log_command
+    @handle_errors
+    async def reclamer_achat(self, interaction: discord.Interaction):
+        """Permet à un utilisateur authentifié de réclamer ses achats sur Minecraft."""
+        with db.get_session() as session:
+            user = session.query(User).filter(User.discord_id == interaction.user.id).first()
+            if not user or not user.minecraft_username:
+                embed = format_error_embed(
+                    "Accès refusé",
+                    "Tu dois d'abord lier ton compte Minecraft via `/minecraft login` avant de réclamer un achat."
+                )
+                await interaction.followup.send(embed=embed, ephemeral=True)
+                return
+
+            if not user.is_authenticated:
+                embed = format_error_embed(
+                    "Authentification requise",
+                    "Tu dois te connecter avec `/minecraft login <mot_de_passe>` avant de réclamer ton achat."
+                )
+                await interaction.followup.send(embed=embed, ephemeral=True)
+                return
+
+            purchase_cog = self.bot.get_cog("PurchaseCog")
+            if purchase_cog:
+                delivered, is_online = await purchase_cog.deliver_pending_for_discord_user(interaction.user.id)
+                if delivered > 0:
+                    embed = format_success_embed(
+                        "Achat livré",
+                        f"{delivered} achat(s) ont été livrés en jeu pour {user.minecraft_username}."
+                    )
+                    await interaction.followup.send(embed=embed, ephemeral=True)
+                    logger.info(f"Réclamation d'achat: {interaction.user} a livré {delivered} achats")
+                    return
+
+                pending = session.query(PendingPurchase).filter(
+                    PendingPurchase.user_id == user.id,
+                    PendingPurchase.status == "pending"
+                ).all()
+
+                if not pending:
+                    embed = format_error_embed("Aucun achat en attente", "Tu n'as aucune commande en attente à réclamer.")
+                    await interaction.followup.send(embed=embed, ephemeral=True)
+                    return
+
+                if not is_online:
+                    embed = format_error_embed(
+                        "Utilisateur hors ligne",
+                        "Tu as des achats en attente, mais tu n'es pas connecté en jeu. Ils seront livrés à ta prochaine connexion."
+                    )
+                    await interaction.followup.send(embed=embed, ephemeral=True)
+                    return
+
+            pending = session.query(PendingPurchase).filter(
+                PendingPurchase.user_id == user.id,
+                PendingPurchase.status == "pending"
+            ).all()
+
+            if not pending:
+                embed = format_error_embed("Aucun achat en attente", "Tu n'as aucune commande en attente à réclamer.")
+                await interaction.followup.send(embed=embed, ephemeral=True)
+                return
+
+            items = []
+            for purchase in pending:
+                items.append(f"• {purchase.item.name} x{purchase.quantity}")
+
+            embed = discord.Embed(
+                title="📦 Achats en attente",
+                description="Ton compte est authentifié. Les achats seront bientôt traités en jeu.",
+                color=discord.Color.green()
+            )
+            embed.add_field(name="Pseudo Minecraft", value=user.minecraft_username, inline=False)
+            embed.add_field(name="Achats", value="\n".join(items), inline=False)
+            embed.set_footer(text="Tes achats seront livrés une fois que tu seras connecté en jeu.")
+
+            await interaction.followup.send(embed=embed, ephemeral=True)
+            logger.info(f"Réclamation d'achat: {interaction.user} réclame {len(pending)} achats")
 
     @app_commands.command(name="inventory", description="Affiche votre inventaire d'achats en attente")
     @app_commands.checks.cooldown(1, 5, key=lambda i: i.user.id)

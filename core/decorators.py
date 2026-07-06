@@ -4,7 +4,7 @@ import discord
 from discord.ext import commands
 from functools import wraps
 from config import config
-from utils.logger import get_logger
+from utils.logger import get_logger, relay_log
 import logging
 
 logger = get_logger(__name__)
@@ -16,7 +16,17 @@ def log_command(func):
     async def wrapper(self, interaction: discord.Interaction, *args, **kwargs):
         logger.info(f"Commande: {func.__name__} - User: {interaction.user} - Guild: {interaction.guild}")
         try:
-            return await func(self, interaction, *args, **kwargs)
+            result = await func(self, interaction, *args, **kwargs)
+            try:
+                await relay_log(
+                    self.bot,
+                    "Commande Discord",
+                    f"Commande: {func.__name__}\nUtilisateur: {interaction.user}\nServeur: {interaction.guild}",
+                    discord.Color.blue()
+                )
+            except Exception:
+                pass
+            return result
         except Exception as e:
             logger.error(f"Erreur dans {func.__name__}: {e}", exc_info=True)
             raise

@@ -7,19 +7,23 @@ from discord import app_commands
 from discord.ext import commands
 import asyncio
 from datetime import datetime
+import secrets
+from typing import cast, Union
 
-from db.database import db
+from db.database import db, get_or_create_user, authenticate_user
 from db.models import User
-from utils.logger import get_logger
+from utils.logger import get_logger, relay_log
 from utils.formatters import create_embed
+from utils.helpers import hash_password, generate_temporary_password
 from config import config
 import crafty_api
 
 log = get_logger("tickets")
 
 # Configuration des IDs (Conversion forcée en int pour parer les formats strings de la config)
+ticket_channel_config = config.CHANNELS.get("ticket_channel")
 try:
-    TICKET_CHANNEL_ID = int(config.CHANNELS.get("ticket_channel"))
+    TICKET_CHANNEL_ID = int(ticket_channel_config) if ticket_channel_config is not None else None
 except (TypeError, ValueError):
     TICKET_CHANNEL_ID = None
     log.error("❌ L'ID 'ticket_channel' dans config est manquant ou invalide !")
@@ -66,7 +70,13 @@ class TicketButtonsView(discord.ui.View):
     async def create_ticket_channel(self, interaction: discord.Interaction, ticket_type: str):
         guild = interaction.guild
         user = interaction.user
-        
+        if guild is None:
+            await interaction.followup.send(
+                "❌ Impossible de créer le ticket : ce salon n'est pas associé à un serveur.",
+                ephemeral=True
+            )
+            return
+
         # Base des permissions : Personne ne voit le salon sauf...
         overwrites = {
             guild.default_role: discord.PermissionOverwrite(view_channel=False),
@@ -80,7 +90,7 @@ class TicketButtonsView(discord.ui.View):
                 overwrites[role] = discord.PermissionOverwrite(view_channel=True, send_messages=True, read_message_history=True)
 
         # Récupération de la catégorie optionnelle
-        category = guild.get_channel(CATEGORY_TICKETS_ID) if CATEGORY_TICKETS_ID else None
+        category = cast(discord.CategoryChannel | None, guild.get_channel(CATEGORY_TICKETS_ID)) if CATEGORY_TICKETS_ID else None
         
         # Création du salon textuel personnalisé
         channel_name = f"{ticket_type}-{user.name}"
@@ -92,6 +102,15 @@ class TicketButtonsView(discord.ui.View):
         )
         
         await interaction.followup.send(f"✅ Ton ticket a été créé ici : {ticket_channel.mention}", ephemeral=True)
+        try:
+            await relay_log(
+                interaction.client,
+                "Ticket Discord",
+                f"🎫 {user} a créé le ticket `{ticket_type}` dans {ticket_channel.mention}",
+                discord.Color.dark_grey()
+            )
+        except Exception:
+            pass
         
         # Redirection du comportement selon le bouton cliqué
         if ticket_type == "aide":
@@ -99,7 +118,11 @@ class TicketButtonsView(discord.ui.View):
         elif ticket_type == "minecraft":
             await self.handle_minecraft_ticket(ticket_channel, user, interaction.client)
 
-    async def handle_help_ticket(self, channel: discord.TextChannel, user: discord.User):
+    async def handle_help_ticket(
+        self,
+        channel: discord.TextChannel,
+        user: Union[discord.User, discord.Member]
+    ):
         embed = create_embed(
             title="❓ Ticket d'Assistance",
             description=f"Bonjour {user.mention},\n\nUn membre de l'équipe de management va t'installer et répondre à ta demande sous peu. Laisse un message décrivant ton problème.",
@@ -107,7 +130,12 @@ class TicketButtonsView(discord.ui.View):
         )
         await channel.send(embed=embed)
 
-    async def handle_minecraft_ticket(self, channel: discord.TextChannel, user: discord.User, bot: commands.Bot):
+    async def handle_minecraft_ticket(
+        self,
+        channel: discord.TextChannel,
+        user: Union[discord.User, discord.Member],
+        bot: discord.Client
+    ):
         embed = create_embed(
             title="🔗 Liaison de compte Minecraft",
             description=(
@@ -119,6 +147,12 @@ class TicketButtonsView(discord.ui.View):
             color=discord.Color.green()
         )
         await channel.send(embed=embed)
+        guild = channel.guild
+        if guild is None:
+            await channel.send(
+                "❌ Impossible de récupérer les informations du serveur. Réessaie plus tard."
+            )
+            return
 
         def check(message):
             return message.author.id == user.id and message.channel.id == channel.id
@@ -145,7 +179,7 @@ class TicketButtonsView(discord.ui.View):
                     User.minecraft_username == minecraft_pseudo
                 ).first()
 
-                if existing_user and existing_user.id != str(user.id):
+                if existing_user and existing_user.discord_id != user.id:
                     embed_taken = create_embed(
                         title="❌ Pseudo déjà utilisé",
                         description=(
@@ -158,43 +192,75 @@ class TicketButtonsView(discord.ui.View):
                     return
 
                 # 🔍 2. Recherche ou création du profil de l'utilisateur actuel
-                with db.get_session() as session:
-                    user_data = session.query(User).filter(
-                        User.discord_id == user.id
-                    ).first()
-            
-                if not user_data:
-                    user_data = User(id=str(user.id), craftycoin_balance=0)
-                    session.add(user_data)
-            
-                # Enregistrement du pseudo Minecraft
-                user_data.minecraft_username = minecraft_pseudo
-                session.commit()
+                user_data = get_or_create_user(session, user.id)
+                user_data.minecraft_username = minecraft_pseudo  # type: ignore[assignment]
+                user_data.is_authenticated = False  # type: ignore[assignment]
+                user_data.is_whitelisted = False  # type: ignore[assignment]
 
-            # 🎮 3. Ajout automatique sur la Whitelist Minecraft via RCON
-            whitelist_status = "Enregistré en base de données."
-            
-            if crafty_api.SERVER_ID:  # Vérifie que l'API Crafty est configurée avant de tenter l'ajout
-                try:
-                    # Envoi de la commande de whitelist en jeu
-                    command = f"/whitelist add {minecraft_pseudo}"
-                    await crafty_api.envoyer_commande(command)
-                    print(f"Commande envoyée : {command}")
-                    whitelist_status = "L'accès au serveur Minecraft a été validé et tu as été ajouté à la **Whitelist** en jeu !"
-                except Exception as rcon_err:
-                    log.error(f"❌ Erreur RCON lors de l'ajout à la whitelist de {minecraft_pseudo} : {rcon_err}")
-                    whitelist_status = "Liaison DB validée, mais l'ajout automatique en jeu a échoué (serveur Minecraft injoignable)."
+                # Générer un mot de passe temporaire de première connexion
+                temporary_password = generate_temporary_password(10)
+                user_data.password_hash = hash_password(temporary_password)  # type: ignore[assignment]
+                session.commit()
+                user_record_id = user_data.id
+
+            # 🎮 3. Bot-managed whitelist: juste enregistrement en DB, pas d'ajout automatique
+            whitelist_status = "Ton pseudo est enregistré en base de données. Tu devras te connecter avec ton mot de passe une fois en jeu."
+
+            # Envoi du mot de passe temporaire en DM
+            dm_message = (
+                f"Bonjour {user.name},\n\n"
+                f"Ton compte Discord est lié au pseudo Minecraft **{minecraft_pseudo}**.\n"
+                f"Ton mot de passe temporaire est : **{temporary_password}**\n\n"
+                "Quand tu rejoins le serveur, tu recevras un message te demandant de te connecter avec:\n"
+                "`/login <ton_mot_de_passe>`\n\n"
+                "Tu pourras ensuite personnaliser ton mot de passe avec `/minecraft set_password <nouveau_mot_de_passe>`."
+            )
+
+            try:
+                await user.send(dm_message)
+            except Exception as dm_err:
+                log.warning(f"Impossible d'envoyer le DM à {user}: {dm_err}")
+                await channel.send(
+                    "⚠️ Je n'ai pas pu t'envoyer le mot de passe en DM. "
+                    "Assure-toi que tes messages privés sont ouverts."
+                )
+
+            # Ajouter le rôle de membre serveur si configuré
+            membres_role_id = config.ROLES.get("membres_serveur")
+            if membres_role_id:
+                role = guild.get_role(int(membres_role_id))
+                member = guild.get_member(user.id)
+                if role and member:
+                    try:
+                        await member.add_roles(role, reason="Liaison Minecraft réussie")
+                        await channel.send(f"✅ Rôle {role.name} attribué avec succès.")
+                    except Exception as role_err:
+                        log.warning(f"Impossible d'ajouter le rôle Membres Serveur à {user}: {role_err}")
+                        await channel.send(
+                            "⚠️ Impossible d'ajouter automatiquement le rôle Membres Serveur. "
+                            "Demande à un administrateur de vérifier le rôle."
+                        )
 
             embed_success = create_embed(
                 title="✅ Whitelist & Liaison OK",
                 description=(
                     f"Ton compte Discord est lié au joueur : **{minecraft_pseudo}**.\n\n"
                     f"{whitelist_status}\n\n"
-                    "Tu peux dès à présent utiliser la boutique !"
+                    "Un mot de passe temporaire t'a été envoyé en DM. "
+                    "Utilise `/minecraft login <mot_de_passe>` pour te connecter."
                 ),
                 color=discord.Color.green()
             )
             await channel.send(embed=embed_success)
+            try:
+                await relay_log(
+                    bot,
+                    "Liaison Minecraft",
+                    f"🔗 {user} a lié son compte à **{minecraft_pseudo}**",
+                    discord.Color.green()
+                )
+            except Exception:
+                pass
             log.info(f"🔗 Liaison réussie via bouton : {user.name} ↔ {minecraft_pseudo}")
 
         except asyncio.TimeoutError:
@@ -205,6 +271,11 @@ class TicketButtonsView(discord.ui.View):
 
 class TicketsCog(commands.Cog):
     """Cog principal pour gérer l'initialisation du système de tickets"""
+    minecraft_group = app_commands.Group(
+        name="minecraft",
+        description="Commandes de liaison et d'authentification Minecraft"
+    )
+
     def __init__(self, bot):
         self.bot = bot
 
@@ -214,8 +285,73 @@ class TicketsCog(commands.Cog):
         self.bot.add_view(TicketButtonsView())
         log.info("🔒 Vue persistante des tickets enregistrée")
 
+    @minecraft_group.command(name="set_password", description="Définit ton mot de passe Minecraft")
+    @app_commands.describe(nouveau_mot_de_passe="Ton nouveau mot de passe sécurisé")
+    async def set_password(self, interaction: discord.Interaction, nouveau_mot_de_passe: str):
+        await interaction.response.defer(ephemeral=True)
+
+        if len(nouveau_mot_de_passe) < 8:
+            await interaction.followup.send(
+                "❌ Le mot de passe doit comporter au moins 8 caractères.",
+                ephemeral=True
+            )
+            return
+
+        with db.get_session() as session:
+            user = session.query(User).filter(User.discord_id == interaction.user.id).first()
+            if not user or not user.minecraft_username:
+                await interaction.followup.send(
+                    "❌ Tu dois d'abord lier ton compte Minecraft via le ticket de connexion.",
+                    ephemeral=True
+                )
+                return
+
+            user.password_hash = hash_password(nouveau_mot_de_passe)
+            user.is_authenticated = False
+            session.commit()
+
+        await interaction.followup.send(
+            "✅ Ton mot de passe a été mis à jour. "
+            "Utilise maintenant `/minecraft login <mot_de_passe>` pour t'authentifier.",
+            ephemeral=True
+        )
+
+    @minecraft_group.command(name="login", description="Se connecter avec ton mot de passe Minecraft")
+    @app_commands.describe(mot_de_passe="Ton mot de passe Minecraft")
+    async def login(self, interaction: discord.Interaction, mot_de_passe: str):
+        await interaction.response.defer(ephemeral=True)
+
+        with db.get_session() as session:
+            user = session.query(User).filter(User.discord_id == interaction.user.id).first()
+            if not user or not user.minecraft_username:
+                await interaction.followup.send(
+                    "❌ Tu dois d'abord lier ton compte Minecraft via le ticket de connexion.",
+                    ephemeral=True
+                )
+                return
+
+            if not user.password_hash:
+                await interaction.followup.send(
+                    "❌ Aucun mot de passe n'a encore été défini. Utilise `/minecraft set_password <mot_de_passe>`.",
+                    ephemeral=True
+                )
+                return
+
+            authenticated = authenticate_user(session, interaction.user.id, mot_de_passe)
+            if not authenticated:
+                await interaction.followup.send(
+                    "❌ Mot de passe incorrect. Vérifie et réessaie.",
+                    ephemeral=True
+                )
+                return
+
+        await interaction.followup.send(
+            "✅ Authentification réussie ! Tu peux maintenant utiliser la boutique et réclamer tes achats.",
+            ephemeral=True
+        )
+
     @app_commands.command(name="setup-tickets", description="Déploie le panel de boutons de tickets (Admin only)")
-    @commands.has_permissions(administrator=True)
+    @app_commands.checks.has_permissions(administrator=True)
     async def setup_tickets(self, interaction: discord.Interaction):
         """Commande permettant d'injecter l'embed et les boutons dans le bon salon"""
         if not TICKET_CHANNEL_ID:
@@ -225,11 +361,17 @@ class TicketsCog(commands.Cog):
             )
             return
 
-        target_channel = interaction.guild.get_channel(TICKET_CHANNEL_ID)
-        
-        if not target_channel:
+        if interaction.guild is None:
             await interaction.response.send_message(
-                f"❌ Le salon configuré (ID: {TICKET_CHANNEL_ID}) est introuvable sur ce serveur.", 
+                "❌ Impossible de déployer : ce salon n'est pas associé à un serveur.",
+                ephemeral=True
+            )
+            return
+
+        target_channel = interaction.guild.get_channel(TICKET_CHANNEL_ID)
+        if not target_channel or not isinstance(target_channel, discord.TextChannel):
+            await interaction.response.send_message(
+                f"❌ Le salon configuré (ID: {TICKET_CHANNEL_ID}) est introuvable ou non accessible.", 
                 ephemeral=True
             )
             return

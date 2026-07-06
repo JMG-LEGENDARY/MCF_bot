@@ -5,8 +5,9 @@ from discord.ext import commands, tasks
 from datetime import datetime
 import logging
 
-from db import db, get_or_create_user, GameSession, PendingPurchase
-from utils import get_logger, extract_minecraft_username_from_log
+from db import db, GameSession, PendingPurchase, User
+from utils import get_logger
+from utils.logger import relay_log
 import crafty_api
 from config import config
 
@@ -34,9 +35,9 @@ class PurchaseCog(commands.Cog):
                 for game_session in active_sessions:
                     # Trouver les achats en attente pour ce joueur
                     pending_purchases = session.query(PendingPurchase).join(
-                        db.User
+                        User
                     ).filter(
-                        db.User.minecraft_username == game_session.minecraft_username,
+                        User.minecraft_username == game_session.minecraft_username,
                         PendingPurchase.status == "pending"
                     ).all()
                     
@@ -49,6 +50,48 @@ class PurchaseCog(commands.Cog):
     @deliver_purchases.before_loop
     async def before_deliver(self):
         await self.bot.wait_until_ready()
+
+    async def deliver_purchases_for_username(self, username: str) -> int:
+        """Livre les achats en attente pour un pseudo Minecraft donné."""
+        delivered = 0
+        with db.get_session() as session:
+            pending_purchases = session.query(PendingPurchase).join(User).filter(
+                User.minecraft_username == username,
+                PendingPurchase.status == "pending"
+            ).all()
+            for purchase in pending_purchases:
+                await self._deliver_purchase(session, purchase, username)
+                delivered += 1
+        return delivered
+
+    async def deliver_pending_for_discord_user(self, discord_id: int) -> tuple[int, bool]:
+        """Tente de livrer les achats d'un utilisateur Discord si il est en jeu."""
+        with db.get_session() as session:
+            user = session.query(User).filter(User.discord_id == discord_id).first()
+            if not user or not user.minecraft_username:
+                return 0, False
+
+            is_online = session.query(GameSession).filter(
+                GameSession.minecraft_username == user.minecraft_username,
+                GameSession.logout_time.is_(None)
+            ).count() > 0
+
+            pending_purchases = session.query(PendingPurchase).filter(
+                PendingPurchase.user_id == user.id,
+                PendingPurchase.status == "pending"
+            ).all()
+
+            if not pending_purchases:
+                return 0, is_online
+
+            if not is_online:
+                return len(pending_purchases), False
+
+            delivered = 0
+            for purchase in pending_purchases:
+                await self._deliver_purchase(session, purchase, user.minecraft_username)
+                delivered += 1
+            return delivered, True
 
     async def _deliver_purchase(self, session, purchase, minecraft_username: str):
         """Livre un achat à un joueur"""
@@ -76,6 +119,15 @@ class PurchaseCog(commands.Cog):
             
             # Log et notification
             logger.info(f"✅ Achat livré: {minecraft_username} → {item.name} x{purchase.quantity}")
+            try:
+                await relay_log(
+                    self.bot,
+                    "Achat livré",
+                    f"✅ {minecraft_username} a reçu **{item.name}** x{purchase.quantity}",
+                    discord.Color.green()
+                )
+            except Exception:
+                pass
             
             # Envoyer une notification Discord
             try:

@@ -74,7 +74,10 @@ class JMGBot(commands.Bot):
         
         logger.info("=" * 60)
         logger.info(f"🚀 Bot connecté en tant que : {self.user}")
-        logger.info(f"📊 ID Bot : {self.user.id}")
+        if self.user.id: # type: ignore
+            logger.info(f"📊 ID Bot : {self.user.id}") # type: ignore
+        else :
+            logger.warning("⚠️  Impossible de récupérer l'ID du bot !")
         logger.info(f"📈 Serveurs : {len(self.guilds)}")
         logger.info("⚡ Prêt à recevoir des commandes !")
         logger.info("=" * 60)
@@ -160,3 +163,5 @@ if __name__ == "__main__":
     except Exception as e:
         logger.critical(f"❌ Erreur non gérée: {e}", exc_info=True)
         sys.exit(1)
+
+

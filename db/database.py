@@ -1,5 +1,5 @@
 """Gestion de la base de données SQLAlchemy"""
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker, Session
 from contextlib import contextmanager
 from config import config
@@ -22,9 +22,47 @@ class Database:
         self.SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=self.engine)
     
     def init_db(self):
-        """Crée toutes les tables"""
+        """Crée toutes les tables et met à jour le schéma pour SQLite."""
         Base.metadata.create_all(bind=self.engine)
+        self._ensure_sqlite_columns()
         logger.info("✅ Base de données initialisée")
+
+    def _ensure_sqlite_columns(self):
+        """Ajoute les colonnes optionnelles manquantes pour SQLite existant."""
+        if "sqlite" not in self.database_url:
+            return
+
+        with self.engine.connect() as conn:
+            try:
+                existing_columns = conn.execute(
+                    text("PRAGMA table_info(users);")
+                ).fetchall()
+                existing_names = {row[1] for row in existing_columns}
+
+                columns_to_add = []
+                if "password_hash" not in existing_names:
+                    columns_to_add.append(
+                        "ALTER TABLE users ADD COLUMN password_hash VARCHAR(256)"
+                    )
+                if "is_authenticated" not in existing_names:
+                    columns_to_add.append(
+                        "ALTER TABLE users ADD COLUMN is_authenticated BOOLEAN DEFAULT 0"
+                    )
+                if "is_whitelisted" not in existing_names:
+                    columns_to_add.append(
+                        "ALTER TABLE users ADD COLUMN is_whitelisted BOOLEAN DEFAULT 0"
+                    )
+                if "last_activity" not in existing_names:
+                    columns_to_add.append(
+                        "ALTER TABLE users ADD COLUMN last_activity DATETIME"
+                    )
+
+                for sql in columns_to_add:
+                    logger.info(f"🔧 Ajout de la colonne SQLite manquante : {sql}")
+                    conn.execute(text(sql))
+            except Exception as e:
+                logger.error(f"Erreur lors de la vérification des colonnes SQLite: {e}")
+                raise
     
     @contextmanager
     def get_session(self) -> Session:
@@ -61,6 +99,39 @@ def get_or_create_user(session: Session, discord_id: int):
         session.add(user)
         session.commit()
     return user
+
+
+def find_user_by_minecraft_username(session: Session, minecraft_username: str):
+    """Récupère un utilisateur par pseudo Minecraft"""
+    from db.models import User
+    return session.query(User).filter(User.minecraft_username == minecraft_username).first()
+
+
+def set_user_password(session: Session, user_id: int, password_hash: str):
+    """Assigne un hash de mot de passe à un utilisateur."""
+    from db.models import User
+    user = session.query(User).filter(User.id == user_id).first()
+    if not user:
+        return None
+    user.password_hash = password_hash
+    user.is_authenticated = False
+    session.commit()
+    return user
+
+
+def authenticate_user(session: Session, discord_id: int, password: str):
+    """Authentifie un utilisateur Discord via mot de passe Minecraft."""
+    from db.models import User
+    from utils.helpers import verify_password
+
+    user = session.query(User).filter(User.discord_id == discord_id).first()
+    if not user or not user.password_hash:
+        return None
+    if verify_password(password, user.password_hash):
+        user.is_authenticated = True
+        session.commit()
+        return user
+    return None
 
 
 def add_transaction(session: Session, user_id: int, amount: float, transaction_type: str, 

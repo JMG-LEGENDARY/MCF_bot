@@ -3,8 +3,10 @@
 import logging
 import logging.handlers
 from pathlib import Path
+from datetime import datetime
 from config import config
 import sys
+import discord
 
 
 def setup_logging():
@@ -49,6 +51,34 @@ def setup_logging():
     root_logger.addHandler(error_handler)
     
     return root_logger
+
+
+async def relay_log(bot, title: str, description: str, color: discord.Color = discord.Color.dark_grey()):
+    """Relaye un message de log vers le salon Discord configuré."""
+    if bot is None:
+        return
+
+    logs_channel_id = config.CHANNELS.get("logs")
+    if not logs_channel_id:
+        return
+
+    if len(description) > 4000:
+        description = description[:4000] + "..."
+
+    try:
+        channel = bot.get_channel(logs_channel_id)
+        if not channel or not isinstance(channel, discord.TextChannel):
+            return
+
+        embed = discord.Embed(
+            title=title,
+            description=description,
+            color=color
+        )
+        embed.timestamp = datetime.utcnow()
+        await channel.send(embed=embed)
+    except Exception as e:
+        logging.getLogger(__name__).warning(f"Impossible d'envoyer le log Discord: {e}")
 
 
 def get_logger(name: str) -> logging.Logger:

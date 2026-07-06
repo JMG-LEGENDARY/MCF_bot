@@ -15,6 +15,10 @@ class Config:
     # --- DISCORD BOT ---
     BOT_TOKEN: str = os.getenv("BOT_TOKEN", "")
     MC_JOIN_TOKEN: str = os.getenv("MC_JOIN_TOKEN", "")
+    MINECRAFT_LOG_PATH: str = os.getenv("MINECRAFT_LOG_PATH", "")
+
+    # --- BOT Minecraft ---
+    MC_JOIN_ID = int(os.getenv("MC_JOIN_ID", "0"))
     
     # --- CRAFTY API ---
     CRAFTY_BASE_URL: str = os.getenv("CRAFTY_BASE_URL", "https://100.111.101.28:8443")
@@ -35,6 +39,7 @@ class Config:
         "economie": int(os.getenv("ECONOMIE_CHANNEL", "0")),
         "quetes": int(os.getenv("QUETES_CHANNEL", "0")),
         "info": int(os.getenv("INFO_CHANNEL", "0")),
+        "info_serveur": int(os.getenv("INFO_SERVEUR_CHANNEL", "0")),
         "signalement": int(os.getenv("SIGNALEMENT_CHANNEL", "0")),
         "modo_only": int(os.getenv("MODO_ONLY_CHANNEL", "0")),
         "ticket_channel": int(os.getenv("TICKET_CHANNEL_ID", "0"))

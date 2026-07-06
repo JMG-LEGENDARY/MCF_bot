@@ -29,18 +29,19 @@ class MinecraftLogMonitor:
             "player_leave": [],
             "server_start": [],
             "server_stop": [],
+            "player_login_command": [],
         }
         self.is_monitoring = False
         
         # Patterns regex pour détecter les événements
         self.patterns = {
             "player_join": [
-                r"\[MinecraftServer\]: (\w+) joined the game",
-                r"\[Server thread/INFO\]: (\w+) \[.*\] logged in",
+                r"(\w+) joined the game",
+                r"(\w+) \[.*\] logged in",
             ],
             "player_leave": [
-                r"\[MinecraftServer\]: (\w+) left the game",
-                r"\[Server thread/INFO\]: (\w+) lost connection",
+                r"(\w+) left the game",
+                r"(\w+) lost connection",
             ],
             "server_start": [
                 r"Done \(\d+\.\d+s\)!",
@@ -49,7 +50,10 @@ class MinecraftLogMonitor:
             "server_stop": [
                 r"Stopping the server",
                 r"\[Server thread/INFO\]: Stopping server",
-            ]
+            ],
+            "player_login_command": [
+                r"(\w+) executed command login (.+)",
+            ],
         }
 
     def register_callback(self, event_type: str, callback: Callable):
@@ -137,6 +141,15 @@ class MinecraftLogMonitor:
                 await self._trigger_event("player_leave", username)
                 return
         
+        # Vérifier player_login_command
+        for pattern in self.patterns["player_login_command"]:
+            match = re.search(pattern, line, re.IGNORECASE)
+            if match:
+                username = match.group(1)
+                password = match.group(2)
+                await self._trigger_event("player_login_command", username, password)
+                return
+        
         # Vérifier server_start
         for pattern in self.patterns["server_start"]:
             if re.search(pattern, line, re.IGNORECASE):
@@ -149,7 +162,7 @@ class MinecraftLogMonitor:
                 await self._trigger_event("server_stop")
                 return
 
-    async def _trigger_event(self, event_type: str, username: str = None):
+    async def _trigger_event(self, event_type: str, username: str = None, password: str = None):
         """Déclenche les callbacks pour un événement"""
         callbacks = self.callbacks.get(event_type, [])
         
@@ -158,7 +171,9 @@ class MinecraftLogMonitor:
         
         for callback in callbacks:
             try:
-                if username:
+                if event_type == "player_login_command":
+                    await callback(username, password)
+                elif username:
                     await callback(username)
                 else:
                     await callback()

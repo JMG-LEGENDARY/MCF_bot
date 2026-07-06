@@ -1,6 +1,9 @@
 """Helpers et utilitaires pour JMG Bot"""
 
 import hashlib
+import base64
+import os
+import secrets
 from typing import Optional
 from datetime import datetime, timedelta
 import difflib
@@ -79,6 +82,31 @@ def extract_minecraft_username_from_log(log_line: str) -> Optional[str]:
 def format_minecraft_command(command_template: str, player_name: str) -> str:
     """Formate une commande Minecraft avec le nom du joueur"""
     return command_template.replace("{player}", player_name).replace("{joueur}", player_name)
+
+
+def hash_password(password: str) -> str:
+    """Hash un mot de passe avec PBKDF2-HMAC-SHA256."""
+    salt = os.urandom(16)
+    key = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt, 120000)
+    return base64.b64encode(salt + key).decode('utf-8')
+
+
+def verify_password(password: str, password_hash: str) -> bool:
+    """Vérifie un mot de passe contre un hash stocké."""
+    try:
+        raw = base64.b64decode(password_hash.encode('utf-8'))
+        salt = raw[:16]
+        key = raw[16:]
+        test_key = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt, 120000)
+        return secrets.compare_digest(test_key, key)
+    except Exception:
+        return False
+
+
+def generate_temporary_password(length: int = 10) -> str:
+    """Génère un mot de passe temporaire facile à communiquer."""
+    alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    return ''.join(secrets.choice(alphabet) for _ in range(length))
 
 
 def get_time_until_next_reset(reset_hour: int = 0) -> timedelta:

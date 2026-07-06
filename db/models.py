@@ -16,6 +16,9 @@ class User(Base):
     discord_id = Column(Integer, unique=True, nullable=False, index=True)
     minecraft_username = Column(String(50), unique=True, nullable=True)
     craftycoin_balance = Column(Float, default=0.0)
+    password_hash = Column(String(256), nullable=True)
+    is_authenticated = Column(Boolean, default=False)
+    is_whitelisted = Column(Boolean, default=False)
     
     # Statistiques
     total_messages = Column(Integer, default=0)

@@ -1,15 +1,17 @@
 """Cog Events - Gestion des événements Discord (messages, vocal, etc.)"""
 
+import re
+
 import discord
 from discord.ext import commands
 from datetime import datetime, timedelta
-import logging
 
 from db import db, get_or_create_user, add_transaction, User
 from utils import (
     detect_copy_paste, is_afk_in_voice, calculate_message_earning,
     hash_message, get_logger
 )
+from utils.logger import relay_log
 from core.constants import EMOJI, ACTIVITY_MULTIPLIERS, TIMEOUTS
 from core.decorators import log_command
 from config import config
@@ -29,8 +31,65 @@ class EventsCog(commands.Cog):
     async def on_message(self, message: discord.Message):
         """Gère les messages reçus"""
         # Ignorer les bots et les commandes
-        if message.author.bot or message.content.startswith('/'):
+        logs_channel_id = config.CHANNELS.get("logs")
+        mc_bot_id = config.MC_JOIN_ID
+        print(f"Message reçu: {message.author} dans {message.channel}: {message.content}\n {message.author.id} - {mc_bot_id}")
+        
+        if message.author.bot and message.author.id != mc_bot_id:
             return
+        if message.content.startswith('/'):
+            return
+        
+        if logs_channel_id and message.channel.id == logs_channel_id:
+            if message.author.id != mc_bot_id:
+                return
+
+            # 1. Définition des patterns de recherche (Regex)
+            match_join = re.search(r"(\w+)\s+joined", message.content)
+            match_leave = re.search(r"(\w+)\s+(?:left|timed out!)", message.content)
+            
+            # Capturera "Pseudo [...] command: /login mon_mot_de_passe" (avec ou sans le slash)
+            match_login = re.search(r"(\w+)\s+executed\s+command\s+`login\s+([^`]+)`", message.content)
+
+
+            
+            minecraft_cog = self.bot.get_cog("MinecraftCog")
+
+            # 2. Cas A : Le joueur tente de se connecter / taper son mot de passe
+            if match_login:
+                username = match_login.group(1)
+                password = match_login.group(2)
+                print(f"Tentative de login détectée pour {username}")
+                
+                if minecraft_cog:
+                    # On lance la fonction qui va Whitelister / Geler le joueur en attente du MDP
+                    self.bot.loop.create_task(minecraft_cog._handle_player_login_command(username, password))
+                else:
+                    logger.error("Le Cog 'MinecraftCog' n'a pas pu être trouvé dans events.py")
+                return
+
+            # 3. Cas B : Le joueur vient de se connecter au serveur (Arrivée brute)
+            if match_join:
+                pseudo = match_join.group(1)
+                print(f"Connexion détectée ! Pseudo : {pseudo}")
+                
+                if minecraft_cog:
+                    # On lance la fonction qui va Whitelister / Geler le joueur en attente du MDP
+                    self.bot.loop.create_task(minecraft_cog._handle_player_join(pseudo))
+                else:
+                    logger.error("Le Cog 'MinecraftCog' n'a pas pu être trouvé dans events.py")
+                return
+
+            # 4. Cas C : Le joueur quitte (Optionnel : tu pourras y ajouter ton _handle_player_leave plus tard)
+            if match_leave:
+                pseudo = match_leave.group(1)
+                print(f"Déconnexion détectée ! Pseudo : {pseudo}")
+                return
+                    
+                
+            elif match_leave:
+                pseudo = match_leave.group(1)
+                print(f"Déconnexion détectée ! Pseudo : {pseudo}")
         
         # Ignorer les messages trop courts
         if len(message.content) < 3:
@@ -100,6 +159,64 @@ class EventsCog(commands.Cog):
             session.commit()
             
             logger.debug(f"Message: {message.author} → +{earning:.1f} CC ({char_count} chars)")
+            """try:
+                await relay_log(
+                    self.bot,
+                    "Message Discord",
+                    f"**{message.author}** dans {message.channel.mention}\n{message.content}",
+                    discord.Color.blurple()
+                )
+            except Exception:
+                pass"""
+
+    @commands.Cog.listener()
+    async def on_message_edit(self, before: discord.Message, after: discord.Message):
+        if before.author.bot:
+            return
+
+        logs_channel_id = config.CHANNELS.get("logs")
+        if logs_channel_id and before.channel.id == logs_channel_id:
+            return
+
+        if before.content == after.content and before.embeds == after.embeds:
+            return
+
+        description = f"**{before.author}** a modifié un message dans {before.channel.mention}\n"
+        if before.content != after.content:
+            description += f"**Avant:** {before.content or '*vide*'}\n**Après:** {after.content or '*vide*'}"
+        if before.embeds != after.embeds:
+            if before.content != after.content:
+                description += "\n"
+            description += "**Embed modifié ou ajoutée.**"
+
+        try:
+            await relay_log(
+                self.bot,
+                "Message édité",
+                description,
+                discord.Color.orange()
+            )
+        except Exception:
+            pass
+
+    @commands.Cog.listener()
+    async def on_message_delete(self, message: discord.Message):
+        if message.author.bot:
+            return
+
+        logs_channel_id = config.CHANNELS.get("logs")
+        if logs_channel_id and message.channel.id == logs_channel_id:
+            return
+
+        try:
+            await relay_log(
+                self.bot,
+                "Message supprimé",
+                f"**{message.author}** a supprimé un message dans {message.channel.mention}\n{message.content or '*contenu non disponible*'}",
+                discord.Color.red()
+            )
+        except Exception:
+            pass
 
     @commands.Cog.listener()
     async def on_voice_state_update(self, member: discord.Member, before: discord.VoiceState, after: discord.VoiceState):
@@ -172,7 +289,7 @@ class EventsCog(commands.Cog):
             # Même channel, vérifier les changements
             if user_id in self.voice_activity:
                 # Mettre à jour last_activity s'il y a un changement (ex: deafen)
-                if before.self_muted != after.self_muted or before.self_deafened != after.self_deafened:
+                if before.self_mute != after.self_mute or before.self_deafened != after.self_deafened:
                     self.voice_activity[user_id]["last_activity"] = datetime.utcnow()
                     logger.debug(f"Activité vocale mise à jour: {member}")
 
