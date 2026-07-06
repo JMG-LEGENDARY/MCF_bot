@@ -1,2 +1,1 @@
-dans le fichier minecraft.py, comprendre pourquoi est ce qu'on se fait pas /kick
-comprendre pourquoi est ce qu'on a un embed qui s'affiche sur minecraft
+améliorer le système d'économie, dont la boutique et le système de récompense 
